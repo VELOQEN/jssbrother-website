@@ -1734,6 +1734,163 @@ const crystalShades = [
   {name:"LL Copper", image:"images/products/metallic-yarn/crystal/ll copper crystal.webp", slug:"ll-copper"}
 ];
 
+
+const catalogueImageSets = {
+  colored:{
+    title:"Colored Metallic Yarn",
+    description:"Explore Colored Metallic Yarn / Tilla shades available from JSS Brothers.",
+    kicker:"COLORED",
+    type:"Metallic Yarn / Tilla",
+    backKey:"metallic",
+    items:[
+      {name:"1128",image:"images/products/metallic-yarn/colored/1128.webp"},
+      {name:"1508",image:"images/products/metallic-yarn/colored/1508.webp"},
+      {name:"1552",image:"images/products/metallic-yarn/colored/1552.webp"},
+      {name:"7275",image:"images/products/metallic-yarn/colored/7275.webp"},
+      {name:"Anmol Zebra",image:"images/products/metallic-yarn/colored/anmol-zebra.webp"},
+      {name:"Black",image:"images/products/metallic-yarn/colored/black.webp"},
+      {name:"Bobby Coffee",image:"images/products/metallic-yarn/colored/bobby-coffee.webp"},
+      {name:"Champion",image:"images/products/metallic-yarn/colored/champion.webp"},
+      {name:"D7272",image:"images/products/metallic-yarn/colored/d7272.webp"},
+      {name:"Fake Silver",image:"images/products/metallic-yarn/colored/fake-silver.webp"},
+      {name:"KR Gold",image:"images/products/metallic-yarn/colored/kr-gold.webp"},
+      {name:"L5000",image:"images/products/metallic-yarn/colored/l5000.webp"},
+      {name:"MB Zebra",image:"images/products/metallic-yarn/colored/mb-zebra.webp"},
+      {name:"Super Silver",image:"images/products/metallic-yarn/colored/super-silver.webp"},
+      {name:"Tobacco",image:"images/products/metallic-yarn/colored/tobacco.webp"},
+      {name:"White Gold",image:"images/products/metallic-yarn/colored/white-gold.webp"}
+    ]
+  },
+
+  shamuk:{
+    title:"Shamuk Metallic Yarn",
+    description:"Explore Shamuk Metallic Yarn / Tilla shades available from JSS Brothers.",
+    kicker:"SHAMUK",
+    type:"Metallic Yarn / Tilla",
+    backKey:"metallic",
+    items:[
+      {name:"1509 Copper",image:"images/products/metallic-yarn/shamuk/1509-copper.webp"},
+      {name:"Champion",image:"images/products/metallic-yarn/shamuk/champion.webp"},
+      {name:"Copper Zebra",image:"images/products/metallic-yarn/shamuk/copper-zebra.webp"},
+      {name:"Light Copper",image:"images/products/metallic-yarn/shamuk/light-copper.webp"},
+      {name:"LL Copper",image:"images/products/metallic-yarn/shamuk/ll-copper.webp"}
+    ]
+  },
+
+  bobbin30pp:{
+    title:"30PP Colored Bobin",
+    description:"Explore available 30PP Colored Bobin shades.",
+    kicker:"30PP BOBIN",
+    type:"Colored Bobin",
+    backKey:"bobin",
+    items:[
+      "1000","1017","1019","1023","1024","1025","1032","1041","1052","1054",
+      "1055","1056","1057","1058","1060","1063","1070","1084","1090","1092",
+      "1098","1100","1105","1110","1119","1122","1128","1133","1147","1159",
+      "1166","1181","1185","1186","1188","1191","1226","1248","1249","1311",
+      "1321","1363","1376","1390","1394","2071","2226","3227","3235","3410",
+      "3418","3442","3748","3779","6008"
+    ].map(name=>({
+      name,
+      image:`images/products/bobbin/30pp/${name}.webp`
+    }))
+  },
+
+  panni:{
+    title:"Panni / Silver Foil",
+    description:"Available Panni / Silver Foil finishes from JSS Brothers.",
+    kicker:"PANNI",
+    type:"Panni / Silver Foil",
+    items:[
+      {name:"Dark Golden Panni",image:"images/products/panni/dark-golden-panni.webp"},
+      {name:"Light Golden Panni",image:"images/products/panni/light-golden-panni.webp"},
+      {name:"Silver Panni",image:"images/products/panni/silver-panni.webp"}
+    ]
+  },
+
+  whiteOil:{
+    title:"White Oil",
+    description:"White Oil supplied for textile machinery use.",
+    kicker:"WHITE OIL",
+    type:"Textile Machinery Oil",
+    items:[
+      {name:"White Oil Bottle",image:"images/products/spare-parts/white-oil-bottle.webp"},
+      {name:"White Oil Can",image:"images/products/spare-parts/white-oil-can.webp"}
+    ]
+  },
+
+  spareParts:{
+    title:"Spare Parts & Sprays",
+    description:"Supporting machinery, cleaning and workshop products supplied by JSS Brothers.",
+    kicker:"SPARE PARTS",
+    type:"Machinery / Workshop Product",
+    items:[
+      {name:"Spot Lifter 69",image:"images/products/spare-parts/spot-lifter-blue-69.webp"},
+      {name:"Spot Lifter 68",image:"images/products/spare-parts/spot-lifter-green-68.webp"},
+      {name:"W100 Spray",image:"images/products/spare-parts/w100-spray.webp"},
+      {name:"WARCO Spray",image:"images/products/spare-parts/warco-spray.webp"},
+      {name:"WD40 Spray",image:"images/products/spare-parts/wd40-spray.webp"}
+    ]
+  }
+};
+
+function renderImageCatalogue(container,config){
+  container.innerHTML="";
+
+  if(config.backKey){
+    const header=document.createElement("div");
+    header.className="crystal-header";
+
+    const backText=config.backKey==="metallic"
+      ? "Metallic Yarn"
+      : "Bobin";
+
+    header.innerHTML=`
+      <button class="crystal-back" type="button">← ${backText}</button>
+      <div>
+        <small>${config.kicker}</small>
+        <h4>${config.title}</h4>
+        <p>${config.description}</p>
+      </div>
+    `;
+
+    header.querySelector(".crystal-back").addEventListener("click",()=>{
+      renderProduct(config.backKey);
+    });
+
+    container.appendChild(header);
+  }
+
+  const imageGrid=document.createElement("div");
+  imageGrid.className="crystal-grid";
+
+  config.items.forEach((item,index)=>{
+    const card=document.createElement("div");
+    card.className="crystal-card";
+
+    card.innerHTML=`
+      <div class="crystal-image watermark-target">
+        <img
+          src="${item.image}"
+          alt="${item.name} ${config.type} - JSS Brothers Lahore"
+          loading="lazy"
+          decoding="async"
+        >
+        <img src="${jssLogoSource}" alt="" class="pic-watermark" aria-hidden="true">
+      </div>
+      <div class="crystal-info">
+        <small>${config.kicker} • ${String(index+1).padStart(2,"0")}</small>
+        <strong>${translateCatalogueTerm(item.name)}</strong>
+        <span>${config.type}</span>
+      </div>
+    `;
+
+    imageGrid.appendChild(card);
+  });
+
+  container.appendChild(imageGrid);
+}
+
 const catalogueData = {
   metallic:{
     number:"01",title:"Metallic Yarn / Tilla",
@@ -1959,6 +2116,32 @@ function createProductCard(item,number){
     });
   }
 
+  if(item==="Colored" || item==="Shamuk"){
+    card.setAttribute("role","button");
+    card.setAttribute("tabindex","0");
+
+    const openFamily=()=>{
+      const config=item==="Colored"
+        ? catalogueImageSets.colored
+        : catalogueImageSets.shamuk;
+
+      const grid=document.getElementById("productGrid");
+
+      document.getElementById("catalogueTitle").textContent=config.title;
+      document.getElementById("catalogueDescription").textContent=config.description;
+
+      renderImageCatalogue(grid,config);
+    };
+
+    card.addEventListener("click",openFamily);
+    card.addEventListener("keydown",event=>{
+      if(event.key==="Enter" || event.key===" "){
+        event.preventDefault();
+        openFamily();
+      }
+    });
+  }
+
   return card;
 }
 
@@ -2062,6 +2245,21 @@ function renderProduct(key){
     return;
   }
 
+  if(key==="panni"){
+    renderImageCatalogue(grid,catalogueImageSets.panni);
+    return;
+  }
+
+  if(key==="oil"){
+    renderImageCatalogue(grid,catalogueImageSets.whiteOil);
+    return;
+  }
+
+  if(key==="parts"){
+    renderImageCatalogue(grid,catalogueImageSets.spareParts);
+    return;
+  }
+
   if(key==="metallic"){
     const carousel=document.createElement("div");
     carousel.className="metallic-brand-carousel";
@@ -2090,6 +2288,29 @@ function renderProduct(key){
           const sub=document.createElement("div");
           sub.className="catalogue-subitem";
           sub.innerHTML=`<strong>${translateCatalogueTerm(item)}</strong><small>${product.number}.${groupIndex+1}.${itemIndex+1}</small>`;
+
+          if(key==="bobin" && item==="30pp"){
+            sub.setAttribute("role","button");
+            sub.setAttribute("tabindex","0");
+            sub.style.cursor="pointer";
+
+            const open30PP=()=>{
+              document.getElementById("catalogueTitle").textContent="30PP Colored Bobin";
+              document.getElementById("catalogueDescription").textContent=
+                "Explore available 30PP Colored Bobin shades.";
+
+              renderImageCatalogue(grid,catalogueImageSets.bobbin30pp);
+            };
+
+            sub.addEventListener("click",open30PP);
+            sub.addEventListener("keydown",event=>{
+              if(event.key==="Enter" || event.key===" "){
+                event.preventDefault();
+                open30PP();
+              }
+            });
+          }
+
           body.appendChild(sub);
         });
       }

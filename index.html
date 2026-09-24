@@ -110,9 +110,9 @@ img{display:block;max-width:100%}
   width:116px;height:58px;object-fit:contain;border-radius:6px;
   filter:contrast(1.07) saturate(1.06) drop-shadow(0 8px 18px rgba(0,0,0,.26));
 }
-.brand-copy{padding-left:13px;border-left:1px solid rgba(255,255,255,.13)}
-.brand-copy strong{display:block;font-size:10px;letter-spacing:.16em}
-.brand-copy small{display:block;margin-top:3px;color:rgba(255,255,255,.35);font-size:7px;letter-spacing:.15em}
+.brand-copy{padding-left:17px;border-left:1px solid rgba(255,255,255,.13);line-height:1.15}
+.brand-copy strong{display:block;font-size:20px;letter-spacing:.12em;font-weight:650}
+.brand-copy small{display:block;margin-top:5px;color:rgba(255,255,255,.48);font-size:14px;letter-spacing:.10em}
 .nav{display:flex;align-items:center;gap:28px}
 .nav a{font-size:13px;font-weight:520;letter-spacing:.015em;color:rgba(255,255,255,.68);position:relative;transition:.25s}
 .nav a:after{content:"";position:absolute;left:0;bottom:-8px;width:0;height:1px;background:#fff;transition:.25s}
@@ -143,8 +143,17 @@ img{display:block;max-width:100%}
   background-size:78px 78px;mask-image:linear-gradient(to bottom,#000,transparent 78%);
 }
 .hero-watermark{
-  position:absolute;right:5vw;top:19%;width:min(440px,34vw);opacity:.06;
-  filter:grayscale(1) brightness(4);border-radius:14px;
+  position:absolute;
+  right:4vw;
+  top:15%;
+  width:min(520px,39vw);
+  opacity:1;
+  filter:none;
+  border-radius:14px;
+  z-index:2;
+  background:transparent;
+  padding:0;
+  box-shadow:none;
 }
 .hero-content{position:relative;z-index:3;max-width:920px}
 .eyebrow{
@@ -152,13 +161,17 @@ img{display:block;max-width:100%}
   font-size:9px;letter-spacing:.23em;text-transform:uppercase;
 }
 .eyebrow:before{content:"";width:28px;height:1px;background:currentColor}
+.hero .eyebrow{font-size:11px}
+.section-heading .eyebrow{font-size:11px}
+.story-sticky .eyebrow{font-size:11px}
+.contact-section .eyebrow{font-size:11px}
 .hero h1{
-  margin-top:25px;font-size:clamp(64px,9vw,145px);line-height:.94;letter-spacing:-.025em;font-weight:680;
+  margin-top:25px;font-size:clamp(56px,7.9vw,126px);line-height:.94;letter-spacing:-.025em;font-weight:680;
 }
 
 @media (max-width:600px){
   .hero h1{
-    font-size:clamp(38px,11.5vw,58px);
+    font-size:clamp(36px,10.5vw,52px);
     line-height:.96;
     letter-spacing:-.035em;
     overflow-wrap:normal;
@@ -174,11 +187,11 @@ img{display:block;max-width:100%}
   color:#fff !important;
 }
 
-.hero-description{max-width:565px;margin-top:29px;color:rgba(255,255,255,.57);line-height:1.85;font-size:14px}
+.hero-description{max-width:650px;margin-top:29px;color:rgba(255,255,255,.64);line-height:1.75;font-size:16px}
 .hero-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:34px}
 .button{
-  display:inline-flex;align-items:center;gap:19px;padding:15px 20px;border-radius:999px;
-  border:1px solid var(--line);font-size:11px;transition:.3s var(--ease)
+  display:inline-flex;align-items:center;gap:21px;padding:17px 24px;border-radius:999px;
+  border:1px solid var(--line);font-size:13px;transition:.3s var(--ease)
 }
 .button.primary{background:#fff;color:#081329}
 .button:hover{transform:translateY(-4px)}
@@ -187,9 +200,9 @@ img{display:block;max-width:100%}
   display:grid;grid-template-columns:130px 130px;gap:1px;
   border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--line);
 }
-.hero-stat{padding:21px;background:rgba(3,12,28,.79);backdrop-filter:blur(16px)}
-.hero-stat strong{display:block;font-size:24px}
-.hero-stat span{display:block;margin-top:5px;color:rgba(255,255,255,.36);font-size:7px;letter-spacing:.11em;line-height:1.45}
+.hero-stat{padding:24px;background:rgba(3,12,28,.79);backdrop-filter:blur(16px)}
+.hero-stat strong{display:block;font-size:30px}
+.hero-stat span{display:block;margin-top:6px;color:rgba(255,255,255,.43);font-size:9px;letter-spacing:.11em;line-height:1.45}
 
 .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#031027}
 .marquee-track{width:max-content;display:flex;animation:marquee 29s linear infinite}
@@ -202,7 +215,7 @@ img{display:block;max-width:100%}
 .section-heading{display:grid;grid-template-columns:1.15fr .85fr;align-items:end;gap:70px;margin-bottom:68px}
 .display{margin-top:20px;font-size:clamp(53px,7vw,105px);line-height:.88;letter-spacing:-.065em;font-weight:540}
 .display span{color:rgba(255,255,255,.24)}
-.section-description{max-width:430px;color:var(--muted);font-size:13px;line-height:1.9}
+.section-description{max-width:470px;color:var(--muted);font-size:15px;line-height:1.82}
 
 .sticky-story{
   padding:0 max(24px,6vw);
@@ -260,13 +273,82 @@ img{display:block;max-width:100%}
 
 .branch[data-branch="Township"] .branch-photo.logo-photo{
   align-items:flex-start;
-  padding-top:34px;
+  padding-top:24px;
+  opacity:1;
 }
 .branch[data-branch="Township"] .branch-photo.logo-photo img{
-  width:68%;
+  width:78%;
   height:auto;
-  max-height:180px;
+  max-height:210px;
   object-fit:contain;
+  opacity:1;
+  filter:none;
+}
+
+.branch[data-branch="Township"]{
+  background:linear-gradient(145deg,#0b3c88,#1459b8);
+  border-color:rgba(255,255,255,.16);
+  color:#fff;
+}
+
+.branch[data-branch="Township"]:after{
+  background:linear-gradient(
+    180deg,
+    rgba(10,52,117,0) 0%,
+    rgba(10,52,117,.08) 35%,
+    rgba(8,45,105,.78) 70%,
+    rgba(5,35,84,.97) 100%
+  );
+}
+
+.branch[data-branch="Township"] .branch-photo.logo-photo{
+  background:linear-gradient(145deg,#eef5ff,#dceaff);
+}
+
+.branch[data-branch="Township"] .branch-bottom{
+  background:linear-gradient(
+    180deg,
+    rgba(15,75,161,.18),
+    rgba(8,52,122,.90) 40%,
+    rgba(5,37,88,.97)
+  );
+}
+
+.branch[data-branch="Township"] .branch-top{
+  color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.22);
+}
+
+.branch[data-branch="Township"] .branch-number{
+  color:rgba(255,255,255,.62);
+}
+
+.branch[data-branch="Township"] .branch-pill{
+  background:rgba(255,255,255,.14);
+  color:#fff;
+  border:1px solid rgba(255,255,255,.20);
+}
+
+.branch[data-branch="Township"] p{
+  color:rgba(255,255,255,.74);
+}
+
+.branch[data-branch="Township"] .person{
+  border-top-color:rgba(255,255,255,.17);
+}
+
+.branch[data-branch="Township"] .person small{
+  color:rgba(255,255,255,.56);
+}
+
+.branch[data-branch="Township"] .person a{
+  color:#bcd8ff;
+}
+
+.branch[data-branch="Township"] button{
+  background:#fff;
+  color:#0a438f;
+  font-weight:650;
 }
 
 .branch-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
@@ -309,6 +391,10 @@ img{display:block;max-width:100%}
 .catalogue-panel h3{margin-top:10px;font-size:52px;letter-spacing:-.055em}
 .catalogue-panel>p{max-width:450px;margin-top:13px;color:var(--muted);font-size:12px;line-height:1.75}
 .product-grid{margin-top:38px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+
+.white-bobin-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr));
+}
 .product-item{
   min-height:122px;padding:20px;display:flex;align-items:end;justify-content:space-between;gap:20px;
   background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;
@@ -463,6 +549,7 @@ img{display:block;max-width:100%}
 @media(max-width:700px){
   .crystal-header{flex-direction:column;gap:15px}
   .crystal-grid{grid-template-columns:1fr}
+  .white-bobin-grid{grid-template-columns:1fr}
   .crystal-header h4{font-size:24px}
 }
 
@@ -698,7 +785,7 @@ img{display:block;max-width:100%}
 .contact-inner{max-width:var(--max);margin:auto;display:grid;grid-template-columns:1fr .8fr;align-items:end;gap:70px}
 .contact-section .eyebrow{color:#2b61bb}.contact-section .display span{color:rgba(7,16,31,.18)}
 .contact-options{display:flex;flex-direction:column;gap:11px}
-.contact-link{padding:18px 20px;display:flex;justify-content:space-between;align-items:center;gap:15px;background:#fff;border:1px solid rgba(7,16,31,.09);border-radius:16px;font-size:11px;transition:.3s var(--ease)}
+.contact-link{padding:21px 23px;display:flex;justify-content:space-between;align-items:center;gap:15px;background:#fff;border:1px solid rgba(7,16,31,.09);border-radius:16px;font-size:13px;transition:.3s var(--ease)}
 .contact-link:hover{transform:translateX(6px)}
 
 .footer{padding:60px max(24px,6vw) 30px;background:#01040c;border-top:1px solid var(--line)}
@@ -920,7 +1007,7 @@ html[dir="rtl"] .size-trigger{text-align:right}
 
 html[dir="rtl"] .brand-copy{
   padding-left:0;
-  padding-right:13px;
+  padding-right:17px;
   border-left:0;
   border-right:1px solid rgba(255,255,255,.13);
 }
@@ -1018,7 +1105,153 @@ html[dir="rtl"] .contact-section .display span{
   outline-offset:5px;
 }
 
+
+/* ===== FINAL PRODUCT WATERMARK FIX ===== */
+.crystal-image{
+  position:relative !important;
+}
+
+.crystal-image > img:not(.pic-watermark){
+  position:relative;
+  z-index:1;
+}
+
+.pic-watermark{
+  position:absolute !important;
+  right:12px !important;
+  bottom:12px !important;
+
+  width:72px !important;
+  height:auto !important;
+  max-width:24% !important;
+
+  opacity:.42 !important;
+  filter:none !important;
+
+  z-index:6 !important;
+  pointer-events:none !important;
+
+  border-radius:7px !important;
+  object-fit:contain !important;
+}
+
+/* White Bobin: exactly three across on normal desktop */
+.white-bobin-grid{
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+}
+
+@media(max-width:900px){
+  .white-bobin-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:700px){
+  .white-bobin-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* FINAL GUARANTEED PRODUCT WATERMARK */
+
+.jss-product-watermark{display:none !important;}
+
+
+
+.crystal-image{
+  position:relative !important;
+}
+
+
+/* White Bobin = exactly three across desktop */
+
+.white-bobin-grid{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr)) !important;
+  gap:14px !important;
+}
+
+@media(max-width:900px){
+  .white-bobin-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  }
+}
+
+@media(max-width:700px){
+  .white-bobin-grid{
+    grid-template-columns:1fr !important;
+  }
+}
+
+
+/* ===== REAL JSS IMAGE WATERMARK ===== */
+
+.real-jss-watermark{
+  position:absolute !important;
+
+  right:16px !important;
+  bottom:16px !important;
+
+  width:105px !important;
+  max-width:25% !important;
+  height:auto !important;
+
+  opacity:.22 !important;
+
+  mix-blend-mode:multiply !important;
+
+  background:transparent !important;
+  border:0 !important;
+  box-shadow:none !important;
+
+  filter:none !important;
+
+  z-index:50 !important;
+
+  pointer-events:none !important;
+}
+
+.crystal-image{
+  position:relative !important;
+}
+
+
+
+
 </style>
+
+<style id="jss-branding-cleanup">
+.pic-watermark,
+.final-jss-watermark,
+.real-jss-watermark,
+.jss-product-watermark{
+    display:none !important;
+}
+
+.watermark-target::after{
+    content:none !important;
+    display:none !important;
+    background:none !important;
+}
+</style>
+
+
+<style id="final-watermark-cleanup">
+.pic-watermark,
+.final-jss-watermark,
+.real-jss-watermark,
+.jss-product-watermark{
+  display:none !important;
+}
+
+.watermark-target::after{
+  content:none !important;
+  display:none !important;
+  background:none !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -1122,9 +1355,6 @@ html[dir="rtl"] .contact-section .display span{
     <div class="story-sticky">
       <div class="eyebrow">02 — MATERIAL STORY</div>
       <h2 class="display"><span>Scroll through<br><span>the core range.</span></span></h2>
-      <p class="story-description">
-        <span>The information stays anchored while each major product family moves through the screen.</span>
-      </p>
     </div>
 
     <div class="story-items">
@@ -1566,6 +1796,9 @@ const urduCatalogueTerms = {
   "Bobin":"بوبن",
   "White Bobin":"وائٹ بوبن",
   "Colored Bobin":"کلرڈ بوبن",
+  "30 PP Small":"30 PP سمال",
+  "30 PP Big":"30 PP بگ",
+  "20 PP Big":"20 PP بگ",
   "Taxilla small":"ٹکسیلا سمال",
   "Taxilla big":"ٹکسیلا بگ",
   "Zamin small":"زمین سمال",
@@ -1871,12 +2104,12 @@ function renderImageCatalogue(container,config){
     card.innerHTML=`
       <div class="crystal-image watermark-target">
         <img
-          src="${item.image}"
+          src="${item.image}?v=20260924-final"
           alt="${item.name} ${config.type} - JSS Brothers Lahore"
           loading="lazy"
           decoding="async"
         >
-        <img src="${jssLogoSource}" alt="" class="pic-watermark" aria-hidden="true">
+        
       </div>
       <div class="crystal-info">
         <small>${config.kicker} • ${String(index+1).padStart(2,"0")}</small>
@@ -1900,22 +2133,16 @@ const catalogueData = {
   bobin:{
     number:"02",title:"Bobin",
     description:"White and colored Bobin products used across embroidery production.",
-    groups:[
-      {title:"White Bobin",items:["Taxilla small","Taxilla big","Zamin small","Zamin big","King big","King small"]},
-      {title:"Colored Bobin",items:["30pp","26pp","20pp"]}
-    ]
+    special:"bobin"
   },
   solving:{number:"03",title:"Solving",description:"Solving material supplied for embroidery applications.",items:["100yrds"]},
   dissolving:{number:"04",title:"Dissolving",description:"Water-soluble Dissolving material for embroidery production.",items:["200meter"]},
-  sequence:{number:"05",title:"Sequence / CD",description:"Choose a size, then open its variant to see the available shades.",special:"sequence"},
+  sequence:{number:"05",title:"Sequence / CD",description:"Sequence / CD products will be added with their correct sizes and variants.",special:"sequenceComingSoon"},
   needles:{
     number:"06",
     title:"Needles",
-    description:"Embroidery machine needles organised by company and needle-point size.",
-    groups:[
-      {title:"Orange Needle",items:["No. 11","No. 14"]},
-      {title:"Groz-Beckert",items:["No. 11","No. 14"]}
-    ]
+    description:"Embroidery machine needles supplied by JSS Brothers.",
+    special:"needles"
   },
   polyester:{
     number:"07",
@@ -1953,8 +2180,12 @@ const catalogueData = {
       {title:"Matt",items:["Golden Panni","357 Panni","Silver Panni"]}
     ]
   },
-  oil:{number:"11",title:"White Oil",description:"White Oil supplied for textile machinery use.",items:["White Oil"]},
-  parts:{number:"12",title:"Spare Parts",description:"Supporting machinery and workshop products.",items:["Clipper","Spot lifter","WD40","W100"]}
+  parts:{
+    number:"11",
+    title:"Spare Parts",
+    description:"Machinery-use products and supporting workshop supplies.",
+    items:["Sprays","White Oil"]
+  }
 };
 
 const sequenceData = {
@@ -2042,7 +2273,7 @@ const sequenceData = {
   }
 };
 
-const categoryOrder = ["metallic","bobin","solving","dissolving","sequence","needles","polyester","fusing","nylon","panni","oil","parts"];
+const categoryOrder = ["metallic","bobin","solving","dissolving","sequence","needles","polyester","fusing","nylon","panni","parts"];
 const navigation = document.getElementById("categoryNavigation");
 
 categoryOrder.forEach((key,index)=>{
@@ -2075,75 +2306,142 @@ function selectCatalogueCategory(key,{scroll=true}={}){
   }
 }
 
+
+function openMetallicFamily(brand){
+  const grid=document.getElementById("productGrid");
+
+  if(!grid) return;
+
+  if(brand==="Crystal"){
+    document.getElementById("catalogueTitle").textContent =
+      currentLanguage==="ur"
+        ? "کرسٹل"
+        : "Crystal Metallic Yarn";
+
+    document.getElementById("catalogueDescription").textContent =
+      currentLanguage==="ur"
+        ? "JSS Brothers میں دستیاب Crystal Metallic Yarn کے شیڈز۔"
+        : "Explore Crystal Metallic Yarn shades available from JSS Brothers.";
+
+    renderCrystal(grid);
+    return;
+  }
+
+  if(brand==="Colored"){
+    const config=catalogueImageSets.colored;
+
+    document.getElementById("catalogueTitle").textContent =
+      currentLanguage==="ur"
+        ? "کلرڈ میٹلک یارن"
+        : config.title;
+
+    document.getElementById("catalogueDescription").textContent =
+      config.description;
+
+    renderImageCatalogue(grid,config);
+    return;
+  }
+
+  if(brand==="Shamuk"){
+    const config=catalogueImageSets.shamuk;
+
+    document.getElementById("catalogueTitle").textContent =
+      currentLanguage==="ur"
+        ? "Shamuk میٹلک یارن"
+        : config.title;
+
+    document.getElementById("catalogueDescription").textContent =
+      config.description;
+
+    renderImageCatalogue(grid,config);
+    return;
+  }
+}
+
+
 function createProductCard(item,number){
+
+  /* COLORED MUST BE A REAL SEPARATE PAGE LINK */
+  if(item==="Colored"){
+    const card=document.createElement("a");
+
+    card.href="/products/colored/";
+    card.className="product-item metallic-product-item";
+
+    const brandLogo=metallicBrandLogos[item];
+
+    card.innerHTML=`
+      <div class="metallic-product-copy">
+        <img
+          class="metallic-product-logo"
+          src="${brandLogo}"
+          alt="Colored Metallic Yarn logo"
+        >
+        <div>
+          <small>${number}</small>
+          <strong>${translateCatalogueTerm(item)}</strong>
+        </div>
+      </div>
+
+      <span class="arrow">↗</span>
+    `;
+
+    return card;
+  }
+
   const card=document.createElement("div");
   card.className="product-item";
 
   const brandLogo=metallicBrandLogos[item];
+
   if(brandLogo){
     card.classList.add("metallic-product-item");
+
     card.innerHTML=`
       <div class="metallic-product-copy">
-        <img class="metallic-product-logo" src="${brandLogo}" alt="${item} Metallic Yarn logo">
-        <div><small>${number}</small><strong>${translateCatalogueTerm(item)}</strong></div>
+        <img
+          class="metallic-product-logo"
+          src="${brandLogo}"
+          alt="${item} Metallic Yarn logo"
+        >
+        <div>
+          <small>${number}</small>
+          <strong>${translateCatalogueTerm(item)}</strong>
+        </div>
       </div>
-      <span class="arrow">↗</span>`;
-  } else {
-    card.innerHTML=`<div><small>${number}</small><strong>${translateCatalogueTerm(item)}</strong></div><span class="arrow">↗</span>`;
+
+      <span class="arrow">↗</span>
+    `;
+  }else{
+    card.innerHTML=`
+      <div>
+        <small>${number}</small>
+        <strong>${translateCatalogueTerm(item)}</strong>
+      </div>
+      <span class="arrow">↗</span>
+    `;
   }
 
-  if(item==="Crystal"){
+  if(["Crystal","Colored","Shamuk"].includes(item)){
     card.setAttribute("role","button");
     card.setAttribute("tabindex","0");
+    card.style.cursor="pointer";
 
-    const openCrystal=()=>{
-      const grid=document.getElementById("productGrid");
-      document.getElementById("catalogueTitle").textContent =
-        currentLanguage==="ur" ? "کرسٹل" : "Crystal Metallic Yarn";
-      document.getElementById("catalogueDescription").textContent =
-        currentLanguage==="ur"
-          ? "JSS Brothers میں دستیاب Crystal Metallic Yarn کے شیڈز۔"
-          : "Explore Crystal Metallic Yarn shades available from JSS Brothers.";
-      renderCrystal(grid);
+    card.onclick=()=>{
+      openMetallicFamily(item);
     };
 
-    card.addEventListener("click",openCrystal);
-    card.addEventListener("keydown",event=>{
+    card.onkeydown=event=>{
       if(event.key==="Enter" || event.key===" "){
         event.preventDefault();
-        openCrystal();
+        openMetallicFamily(item);
       }
-    });
-  }
-
-  if(item==="Colored" || item==="Shamuk"){
-    card.setAttribute("role","button");
-    card.setAttribute("tabindex","0");
-
-    const openFamily=()=>{
-      const config=item==="Colored"
-        ? catalogueImageSets.colored
-        : catalogueImageSets.shamuk;
-
-      const grid=document.getElementById("productGrid");
-
-      document.getElementById("catalogueTitle").textContent=config.title;
-      document.getElementById("catalogueDescription").textContent=config.description;
-
-      renderImageCatalogue(grid,config);
     };
-
-    card.addEventListener("click",openFamily);
-    card.addEventListener("keydown",event=>{
-      if(event.key==="Enter" || event.key===" "){
-        event.preventDefault();
-        openFamily();
-      }
-    });
   }
 
   return card;
 }
+
 
 const crystalShadeUrdu = {
   "1128 Zebra":"1128 زیبرا",
@@ -2215,7 +2513,7 @@ function renderCrystal(container){
           loading="lazy"
           decoding="async"
         >
-        <img src="${jssLogoSource}" alt="" class="pic-watermark" aria-hidden="true">
+        
       </div>
       <div class="crystal-info">
         <small>CRYSTAL • ${String(index+1).padStart(2,"0")}</small>
@@ -2240,8 +2538,23 @@ function renderProduct(key){
   const grid=document.getElementById("productGrid");
   grid.innerHTML="";
 
-  if(product.special==="sequence"){
-    renderSequence(grid);
+  if(product.special==="needles"){
+    renderNeedlesCatalogue(grid);
+    return;
+  }
+
+  if(product.special==="sequenceComingSoon"){
+    grid.innerHTML=`
+      <div class="coming-soon" style="grid-column:1/-1">
+        <strong>${currentLanguage==="ur" ? "Sequence / CD مصنوعات جلد شامل کی جائیں گی" : "Sequence / CD products coming soon"}</strong>
+        <p>${currentLanguage==="ur" ? "ہر پروڈکٹ اس کے درست mm سائز اور variant کے ساتھ شامل کیا جائے گا۔" : "Each product will be added with its correct mm size and variant."}</p>
+      </div>
+    `;
+    return;
+  }
+
+  if(product.special==="bobin"){
+    renderBobinCatalogue(grid);
     return;
   }
 
@@ -2250,24 +2563,180 @@ function renderProduct(key){
     return;
   }
 
-  if(key==="oil"){
-    renderImageCatalogue(grid,catalogueImageSets.whiteOil);
-    return;
-  }
-
   if(key==="parts"){
-    renderImageCatalogue(grid,catalogueImageSets.spareParts);
+    grid.innerHTML="";
+
+    const choices=[
+      {
+        name:"Sprays",
+        image:"images/products/spare-parts/sprays-cover.png",
+        description: currentLanguage==="ur"
+          ? "Spot Lifter اور دیگر sprays دیکھیں۔"
+          : "Open sprays such as Spot Lifter and related products."
+      },
+      {
+        name:"White Oil",
+        image:catalogueImageSets.whiteOil.items[1].image,
+        description: currentLanguage==="ur"
+          ? "White Oil مصنوعات دیکھیں۔"
+          : "Open White Oil products."
+      }
+    ];
+
+    choices.forEach((choice,index)=>{
+      const card=document.createElement("article");
+      card.className="product-item";
+      card.style.cursor="pointer";
+
+      card.innerHTML=`
+        <div style="display:flex;align-items:center;gap:18px;width:100%">
+          <div style="
+            width:112px;
+            height:112px;
+            flex:0 0 112px;
+            border-radius:16px;
+            overflow:hidden;
+            background:#fff;
+            border:1px solid rgba(255,255,255,.10)
+          ">
+            <img
+              src="${choice.image}?v=20260924-final"
+              alt="${choice.name} - JSS Brothers"
+              style="width:100%;height:100%;object-fit:contain;padding:8px"
+              loading="lazy"
+              decoding="async"
+            >
+          </div>
+
+          <div style="min-width:0">
+            <small>11.${index+1}</small>
+            <strong style="display:block;margin-top:6px">${translateCatalogueTerm(choice.name)}</strong>
+            <p style="margin-top:10px;color:var(--muted);font-size:11px;line-height:1.6">
+              ${choice.description}
+            </p>
+          </div>
+        </div>
+
+        <span class="arrow">↗</span>
+      `;
+
+      const openChoice=()=>{
+        if(choice.name==="White Oil"){
+          document.getElementById("catalogueTitle").textContent="White Oil";
+          document.getElementById("catalogueDescription").textContent=
+            currentLanguage==="ur"
+              ? "ٹیکسٹائل مشینری کے استعمال کے لیے White Oil مصنوعات۔"
+              : "White Oil products for textile machinery use.";
+
+          renderImageCatalogue(grid,catalogueImageSets.whiteOil);
+        } else {
+          document.getElementById("catalogueTitle").textContent=
+            currentLanguage==="ur" ? "Sprays" : "Sprays";
+
+          document.getElementById("catalogueDescription").textContent=
+            currentLanguage==="ur"
+              ? "Spot Lifter اور متعلقہ spray مصنوعات۔"
+              : "Spot Lifter and related spray products.";
+
+          renderImageCatalogue(grid,catalogueImageSets.spareParts);
+        }
+      };
+
+      card.addEventListener("click",openChoice);
+      card.addEventListener("keydown",event=>{
+        if(event.key==="Enter" || event.key===" "){
+          event.preventDefault();
+          openChoice();
+        }
+      });
+
+      card.setAttribute("role","button");
+      card.setAttribute("tabindex","0");
+
+      grid.appendChild(card);
+    });
+
     return;
   }
 
   if(key==="metallic"){
     const carousel=document.createElement("div");
     carousel.className="metallic-brand-carousel";
-    carousel.setAttribute("aria-label","Metallic Yarn brands available at JSS Brothers");
-    const brands=["Colored","Crystal","Stylo","Shamuk","Markfil"];
+    carousel.setAttribute(
+      "aria-label",
+      "Metallic Yarn brands available at JSS Brothers"
+    );
+
+    const brands=[
+      "Colored",
+      "Crystal",
+      "Stylo",
+      "Shamuk",
+      "Markfil"
+    ];
+
     const loop=[...brands,...brands];
-    carousel.innerHTML=`<div class="metallic-brand-track">${loop.map(brand=>`<div class="metallic-brand-chip"><img src="${metallicBrandLogos[brand]}" alt="${brand} Metallic Yarn logo" loading="lazy"></div>`).join("")}</div>`;
+
+    carousel.innerHTML=`
+      <div class="metallic-brand-track">
+        ${loop.map(brand=>`
+          <div
+            class="metallic-brand-chip"
+            data-brand="${brand}"
+            role="button"
+            tabindex="0"
+          >
+            <img
+              src="${metallicBrandLogos[brand]}"
+              alt="${brand} Metallic Yarn logo"
+              loading="lazy"
+            >
+          </div>
+        `).join("")}
+      </div>
+    `;
+
     grid.appendChild(carousel);
+
+    /*
+      COLORED carousel logos become real anchor elements.
+      This bypasses every old JS navigation problem.
+    */
+    carousel
+      .querySelectorAll('.metallic-brand-chip[data-brand="Colored"]')
+      .forEach(oldChip=>{
+
+        const link=document.createElement("a");
+
+        link.href="/products/colored/";
+        link.className=oldChip.className;
+        link.dataset.brand="Colored";
+        link.setAttribute("role","link");
+        link.setAttribute("aria-label","Open Colored Metallic Yarn catalogue");
+
+        link.innerHTML=oldChip.innerHTML;
+
+        oldChip.replaceWith(link);
+      });
+
+    carousel.querySelectorAll(".metallic-brand-chip").forEach(chip=>{
+      const brand=chip.dataset.brand;
+
+      if(["Crystal","Colored","Shamuk"].includes(brand)){
+        chip.style.cursor="pointer";
+
+        chip.onclick=()=>{
+          openMetallicFamily(brand);
+        };
+
+        chip.onkeydown=event=>{
+          if(event.key==="Enter" || event.key===" "){
+            event.preventDefault();
+            openMetallicFamily(brand);
+          }
+        };
+      }
+    });
   }
 
   if(product.groups){
@@ -2329,6 +2798,168 @@ function renderProduct(key){
     product.items.forEach((item,index)=>grid.appendChild(createProductCard(item,`${product.number}.${index+1}`)));
   }
 }
+
+
+function renderBobinCatalogue(container){
+  // ---------------- WHITE BOBIN ----------------
+
+  const whiteSection=document.createElement("div");
+  whiteSection.className="catalogue-group";
+  whiteSection.style.gridColumn="1/-1";
+
+  const whiteHead=document.createElement("div");
+  whiteHead.className="catalogue-group-head";
+  whiteHead.innerHTML=`
+    <strong>${translateCatalogueTerm("White Bobin")}</strong>
+    <span>02.1</span>
+  `;
+  whiteSection.appendChild(whiteHead);
+
+  const whiteGrid=document.createElement("div");
+  whiteGrid.className="product-grid white-bobin-grid";
+
+  const whiteBobins=[
+    {
+      name:"30 PP Small",
+      image:"images/products/bobbin/white/30pp-small.png"
+    },
+    {
+      name:"30 PP Big",
+      image:"images/products/bobbin/white/30pp-big.png"
+    },
+    {
+      name:"20 PP Big",
+      image:"images/products/bobbin/white/20pp-big.png"
+    }
+  ];
+
+  whiteBobins.forEach((item,index)=>{
+    const card=document.createElement("article");
+    card.className="crystal-card";
+
+    card.innerHTML=`
+      <div class="crystal-image watermark-target">
+        <img
+          src="${item.image}?v=20260924-final"
+          alt="${item.name} White Bobin - JSS Brothers Lahore"
+          loading="lazy"
+          decoding="async"
+        >
+        
+      </div>
+
+      <div class="crystal-info">
+        <small>02.1.${index+1}</small>
+        <strong>${translateCatalogueTerm(item.name)}</strong>
+        <span>${currentLanguage==="ur" ? "وائٹ بوبن" : "White Bobin"}</span>
+      </div>
+    `;
+
+    whiteGrid.appendChild(card);
+  });
+
+  whiteSection.appendChild(whiteGrid);
+  container.appendChild(whiteSection);
+
+
+  // ---------------- COLORED BOBIN ----------------
+  // No extra click. Show every existing shade immediately.
+
+  const coloredSection=document.createElement("div");
+  coloredSection.className="catalogue-group";
+  coloredSection.style.gridColumn="1/-1";
+
+  const coloredHead=document.createElement("div");
+  coloredHead.className="catalogue-group-head";
+  coloredHead.innerHTML=`
+    <strong>${translateCatalogueTerm("Colored Bobin")}</strong>
+    <span>02.2</span>
+  `;
+  coloredSection.appendChild(coloredHead);
+
+  const coloredGrid=document.createElement("div");
+  coloredGrid.className="crystal-grid";
+
+  catalogueImageSets.bobbin30pp.items.forEach((item,index)=>{
+    const card=document.createElement("div");
+    card.className="crystal-card";
+
+    card.innerHTML=`
+      <div class="crystal-image watermark-target">
+        <img
+          src="${item.image}?v=20260924-final"
+          alt="${item.name} Colored Bobin - JSS Brothers Lahore"
+          loading="lazy"
+          decoding="async"
+        >
+        
+      </div>
+
+      <div class="crystal-info">
+        <small>30PP • ${String(index+1).padStart(2,"0")}</small>
+        <strong>${translateCatalogueTerm(item.name)}</strong>
+        <span>${currentLanguage==="ur" ? "کلرڈ بوبن" : "Colored Bobin"}</span>
+      </div>
+    `;
+
+    coloredGrid.appendChild(card);
+  });
+
+  coloredSection.appendChild(coloredGrid);
+  container.appendChild(coloredSection);
+}
+
+
+function renderNeedlesCatalogue(container){
+  const needleGrid=document.createElement("div");
+  needleGrid.className="crystal-grid";
+
+  const needles=[
+    {
+      name:"Orange Needle #11",
+      brand:"Orange Needle",
+      image:"images/products/needles/orange-11.png"
+    },
+    {
+      name:"Orange Needle #14",
+      brand:"Orange Needle",
+      image:"images/products/needles/orange-14.png"
+    },
+    {
+      name:"Groz-Beckert #14",
+      brand:"Groz-Beckert",
+      image:"images/products/needles/groz-beckert-14.png"
+    }
+  ];
+
+  needles.forEach((item,index)=>{
+    const card=document.createElement("article");
+    card.className="crystal-card";
+
+    card.innerHTML=`
+      <div class="crystal-image watermark-target">
+        <img
+          src="${item.image}?v=20260924-final"
+          alt="${item.name} embroidery machine needle - JSS Brothers Lahore"
+          loading="lazy"
+          decoding="async"
+        >
+        
+      </div>
+
+      <div class="crystal-info">
+        <small>06.${index+1}</small>
+        <strong>${translateCatalogueTerm(item.name)}</strong>
+        <span>${item.brand}</span>
+      </div>
+    `;
+
+    needleGrid.appendChild(card);
+  });
+
+  container.appendChild(needleGrid);
+}
+
 
 function renderSequence(container){
   const tree=document.createElement("div");
@@ -2494,6 +3125,133 @@ window.addEventListener("scroll",()=>{
     heroImage.style.transform=`scale(${1.08+window.scrollY*.00008}) translateY(${window.scrollY*.035}px)`;
   }
 },{passive:true});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+<script src="/branding-loader.js?v=1"></script>
+<script src="/catalogue-navigation.js?v=1"></script>
+<script>
+
+/* ===== DIRECT CATALOGUE PAGE ROUTES ===== */
+
+(function(){
+
+  const ROUTES = {
+    "colored": "/products/colored/",
+    "crystal": "/products/crystal/",
+    "stylo": "/products/stylo/",
+    "shamuk": "/products/shamuk/",
+    "markfil": "/products/markfil/",
+    "bobin": "/products/bobbin/",
+    "bobbin": "/products/bobbin/",
+    "solving": "/products/solving/",
+    "dissolving": "/products/dissolving/",
+    "sequence / cd": "/products/sequence/",
+    "sequence": "/products/sequence/",
+    "needles": "/products/needles/",
+    "polyester": "/products/polyester/",
+    "fusing": "/products/fusing/",
+    "nylon": "/products/nylon/",
+    "panni": "/products/panni/",
+    "spare parts": "/products/spare-parts/"
+  };
+
+  function cleanText(el){
+    return (el?.textContent || "")
+      .replace(/\s+/g," ")
+      .trim()
+      .toLowerCase();
+  }
+
+  function getRoute(el){
+    const text = cleanText(el);
+
+    for(const [label,url] of Object.entries(ROUTES)){
+      if(
+        text === label ||
+        text.startsWith(label + " ") ||
+        text.includes(" " + label + " ") ||
+        text.endsWith(" " + label)
+      ){
+        return url;
+      }
+    }
+
+    return null;
+  }
+
+  document.addEventListener("click", function(event){
+
+    const card = event.target.closest(
+      ".product-card,.catalogue-card,.crystal-card,.product-item,.catalog-item,button,a"
+    );
+
+    if(!card) return;
+
+    const grid = document.getElementById("productGrid");
+
+    if(grid && !grid.contains(card)){
+      return;
+    }
+
+    const route = getRoute(card);
+
+    if(!route) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    window.location.assign(route);
+
+  }, true);
+
+  document.addEventListener("keydown", function(event){
+
+    if(event.key !== "Enter" && event.key !== " ") return;
+
+    const card = event.target.closest(
+      ".product-card,.catalogue-card,.crystal-card,.product-item,.catalog-item,button,a"
+    );
+
+    if(!card) return;
+
+    const grid = document.getElementById("productGrid");
+
+    if(grid && !grid.contains(card)){
+      return;
+    }
+
+    const route = getRoute(card);
+
+    if(!route) return;
+
+    event.preventDefault();
+    event.stopPropagation();
+    event.stopImmediatePropagation();
+
+    window.location.assign(route);
+
+  }, true);
+
+})();
+
+/* ===== END DIRECT CATALOGUE PAGE ROUTES ===== */
+
 </script>
 </body>
 </html>

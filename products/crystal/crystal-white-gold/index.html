@@ -161,6 +161,22 @@ footer{
  .lead{font-size:15px}
 }
 </style>
+
+<style id="jss-branding-cleanup">
+.pic-watermark,
+.final-jss-watermark,
+.real-jss-watermark,
+.jss-product-watermark{
+    display:none !important;
+}
+
+.watermark-target::after{
+    content:none !important;
+    display:none !important;
+    background:none !important;
+}
+</style>
+
 </head>
 
 <body>
@@ -286,5 +302,6 @@ for product enquiries and current details.
 </div>
 </footer>
 
+<script src="/branding-loader.js?v=1"></script>
 </body>
 </html>

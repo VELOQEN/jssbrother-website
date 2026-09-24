@@ -1,0 +1,16 @@
+{
+  "enabled": true,
+  "version": "1.0",
+  "source_root": "images/products",
+  "output_root": "images/products-branded",
+  "template": "images/brand/jss-watermark-template.png",
+  "skip_watermark": [
+    "metallic-yarn/crystal"
+  ],
+  "supported_extensions": [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".webp"
+  ]
+}

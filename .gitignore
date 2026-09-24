@@ -1,3 +1,5 @@
 .venv-watermark/
 __pycache__/
 *.pyc
+
+backups/

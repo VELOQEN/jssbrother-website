@@ -1252,6 +1252,18 @@ html[dir="rtl"] .contact-section .display span{
 }
 </style>
 
+<style>
+.spare-choice-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.spare-choice-grid>.spare-choice-card{min-height:430px;display:flex;flex-direction:column;align-items:stretch;justify-content:space-between}
+.spare-choice-card>div{display:flex;flex-direction:column;align-items:stretch!important}
+.spare-choice-card>div>div:first-child{width:100%!important;height:250px!important;flex:0 0 auto!important}
+.spare-choice-card>.arrow{align-self:flex-end}
+@media(max-width:700px){
+  .spare-choice-grid{grid-template-columns:1fr}
+  .spare-choice-grid>.spare-choice-card{min-height:330px}
+  .spare-choice-card>div>div:first-child{height:180px!important}
+}
+</style>
 </head>
 
 <body>
@@ -1374,14 +1386,14 @@ html[dir="rtl"] .contact-section .display span{
 
       <article class="story-item" data-catalogue-key="solving" role="link" tabindex="0">
         <div class="story-card">
-          <div class="story-image watermark-target"><img src="https://i5.walmartimages.com/seo/1roll-PVA-Stick-and-Stitch-Embroidery-Water-Soluble-Fabric-Wash-Away-Embroidery-Stabilizer-Clear-250mm-30-yards-roll_4ad6908f-d6c8-4a1b-bcc6-e8ea83584df0.7e553f958603fc73690b380c011b0d84.jpeg" alt="Solving embroidery material"></div>
+          <div class="story-image watermark-target"><img src="/images/products/solving/solvi.webp" alt="Solving embroidery material"></div>
           <div class="story-content"><small>03 • SOLVING</small><h3>Solving</h3><p>100yrds water-soluble embroidery material.</p></div>
         </div>
       </article>
 
       <article class="story-item" data-catalogue-key="dissolving" role="link" tabindex="0">
         <div class="story-card">
-          <div class="story-image watermark-target"><img src="https://www.mh-chine.com/media/djcatalog2/images/item/144/40g-100-pva-cold-water-soluble-non-woven-interlining-film-fabric-6407-1006_l.webp" alt="Dissolving material"></div>
+          <div class="story-image watermark-target"><img src="/images/products/dissolving/dissolving.webp" alt="Dissolving material"></div>
           <div class="story-content"><small>04 • DISSOLVING</small><h3>Dissolving</h3><p>200meter dissolving material for embroidery applications.</p></div>
         </div>
       </article>
@@ -1890,10 +1902,6 @@ const urduCatalogueTerms = {
   "200meter":"200meter",
   "No. 11":"نمبر 11",
   "No. 14":"نمبر 14",
-  "2700 yrds":"2700 یارڈز",
-  "3000 yrds":"3000 یارڈز",
-  "1025 — 100 yrds":"1025 — 100 یارڈز",
-  "1030 — 100 yrds":"1030 — 100 یارڈز",
   "1040 — 100 yrds":"1040 — 100 یارڈز",
   "1050 — 100 yrds":"1050 — 100 یارڈز",
   "1060 — 100 yrds":"1060 — 100 یارڈز",
@@ -2135,8 +2143,8 @@ const catalogueData = {
     description:"White and colored Bobin products used across embroidery production.",
     special:"bobin"
   },
-  solving:{number:"03",title:"Solving",description:"Solving material supplied for embroidery applications.",items:["100yrds"]},
-  dissolving:{number:"04",title:"Dissolving",description:"Water-soluble Dissolving material for embroidery production.",items:["200meter"]},
+  solving:{number:"03",title:"Solving",description:"Solving material supplied for embroidery applications.",special:"materialPhoto",image:"images/products/solving/solvi.webp",label:"100yrds"},
+  dissolving:{number:"04",title:"Dissolving",description:"Water-soluble Dissolving material for embroidery production.",special:"materialPhoto",image:"images/products/dissolving/dissolving.webp",label:"200meter"},
   sequence:{number:"05",title:"Sequence / CD",description:"Sequence / CD products will be added with their correct sizes and variants.",special:"sequenceComingSoon"},
   needles:{
     number:"06",
@@ -2144,33 +2152,16 @@ const catalogueData = {
     description:"Embroidery machine needles supplied by JSS Brothers.",
     special:"needles"
   },
-  polyester:{
-    number:"07",
-    title:"Polyester",
-    description:"Polyester thread supplied in two yardage options. Shade ranges will be added next.",
-    groups:[
-      {title:"2700 yrds",note:"Shades coming soon."},
-      {title:"3000 yrds",note:"Shades coming soon."}
-    ]
-  },
+  polyester:{number:"07",title:"Polyester",description:"Polyester product details are being added.",special:"comingSoon"},
   fusing:{
-    number:"08",
-    title:"Fusing",
-    description:"Fusing organised by colour and weight/specification.",
+    number:"08",title:"Fusing",description:"Fusing product details are being added.",
     groups:[
-      {title:"Black Fusing",items:["1025 — 100 yrds","1030 — 100 yrds"]},
-      {title:"White Fusing",note:"Manufactured upon special request."},
-      {title:"Off White Fusing",items:[
-        "1025 — 100 yrds",
-        "1030 — 100 yrds",
-        "1040 — 100 yrds",
-        "1050 — 100 yrds",
-        "1060 — 100 yrds",
-        "1070 — 100 yrds"
-      ]}
+      {title:"Black Fusing",note:"Coming Soon"},
+      {title:"White Fusing",note:"Coming Soon"},
+      {title:"Off White Fusing",note:"Coming Soon"}
     ]
   },
-  nylon:{number:"09",title:"Nylon",description:"Nylon textile material.",items:["Nylon"]},
+  nylon:{number:"09",title:"Nylon",description:"Nylon product details are being added.",special:"comingSoon"},
   panni:{
     number:"10",
     title:"Panni",
@@ -2520,6 +2511,41 @@ function renderProduct(key){
 
   const grid=document.getElementById("productGrid");
   grid.innerHTML="";
+  grid.classList.toggle("spare-choice-grid",key==="parts");
+
+  if(product.special==="comingSoon"){
+    const card=document.createElement("div");
+    card.className="coming-soon";
+    card.style.gridColumn="1/-1";
+    const title=document.createElement("strong");
+    title.textContent=currentLanguage==="ur" ? "جلد آ رہا ہے" : "Coming Soon";
+    card.appendChild(title);
+    grid.appendChild(card);
+    return;
+  }
+
+  if(product.special==="materialPhoto"){
+    const card=document.createElement("a");
+    card.className="crystal-card";
+    card.href="/products/"+key+"/";
+    const image=document.createElement("div");
+    image.className="crystal-image watermark-target";
+    const img=document.createElement("img");
+    img.src="/"+product.image;
+    img.alt=product.title+" roll - JSS Brothers";
+    img.loading="lazy";
+    image.appendChild(img);
+    const info=document.createElement("div");
+    info.className="crystal-info";
+    const title=document.createElement("strong");
+    title.textContent=translateCatalogueTerm(product.title);
+    const label=document.createElement("span");
+    label.textContent=translateCatalogueTerm(product.label);
+    info.append(title,label);
+    card.append(image,info);
+    grid.appendChild(card);
+    return;
+  }
 
   if(product.special==="needles"){
     renderNeedlesCatalogue(grid);
@@ -2568,15 +2594,15 @@ function renderProduct(key){
 
     choices.forEach((choice,index)=>{
       const card=document.createElement("article");
-      card.className="product-item";
+      card.className="product-item spare-choice-card";
       card.style.cursor="pointer";
 
       card.innerHTML=`
         <div style="display:flex;align-items:center;gap:18px;width:100%">
           <div style="
-            width:112px;
-            height:112px;
-            flex:0 0 112px;
+            width:clamp(120px,16vw,185px);
+            height:clamp(120px,16vw,185px);
+            flex:0 0 auto;
             border-radius:16px;
             overflow:hidden;
             background:#fff;
@@ -2604,6 +2630,7 @@ function renderProduct(key){
       `;
 
       const openChoice=()=>{
+        grid.classList.remove("spare-choice-grid");
         if(choice.name==="White Oil"){
           document.getElementById("catalogueTitle").textContent="White Oil";
           document.getElementById("catalogueDescription").textContent=
@@ -2794,7 +2821,7 @@ function renderBobinCatalogue(container){
   whiteHead.className="catalogue-group-head";
   whiteHead.innerHTML=`
     <strong>${translateCatalogueTerm("White Bobin")}</strong>
-    <span>02.1</span>
+    <span>02.1 · ${currentLanguage==="ur" ? "خصوصی درخواست پر تیار کیا جاتا ہے" : "Manufactured upon special request"}</span>
   `;
   whiteSection.appendChild(whiteHead);
 

@@ -211,6 +211,12 @@ footer{
     width:min(100% - 26px,1240px);
   }
 }
+.featured-product{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+.featured-product .image{aspect-ratio:auto;min-height:470px;background:#eef0f3}
+.featured-product .image img{max-height:590px;object-fit:contain}
+.featured-product .info{display:flex;flex-direction:column;justify-content:center;padding:clamp(24px,5vw,70px)}
+.featured-product .info strong{font-size:clamp(30px,4vw,52px)}
+@media(max-width:700px){.featured-product{grid-template-columns:1fr}.featured-product .image{min-height:340px}.featured-product .image img{max-height:440px}}
 </style>
 
 </head>
@@ -227,17 +233,15 @@ footer{
 <section class="hero">
   <div class="kicker">SOLVING</div>
   <h1>Solving</h1>
-  <div class="sub">Solving product information and images are being added.</div>
+  <div class="sub">Solving product image and details from JSS Brothers.</div>
 </section>
 
 <section class="grid">
 
-<div class="coming">
-  <div>
-    <strong>Coming Soon</strong>
-    <p>Product information for this category will be added soon.</p>
-  </div>
-</div>
+<article class="card featured-product">
+  <div class="image"><img src="/images/products/solving/solvi.webp" alt="Solving roll supplied by JSS Brothers" loading="lazy"></div>
+  <div class="info"><small>SOLVING</small><strong>Solving</strong><p>100yrds</p></div>
+</article>
 </section>
 
 </main>

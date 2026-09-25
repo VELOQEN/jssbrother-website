@@ -2066,11 +2066,11 @@ const catalogueImageSets = {
     kicker:"SPARE PARTS",
     type:"Machinery / Workshop Product",
     items:[
-      {name:"Spot Lifter 69",image:"images/products/spare-parts/spot-lifter-blue-69.webp"},
-      {name:"Spot Lifter 68",image:"images/products/spare-parts/spot-lifter-green-68.webp"},
-      {name:"W100 Spray",image:"images/products/spare-parts/w100-spray.webp"},
-      {name:"WARCO Spray",image:"images/products/spare-parts/warco-spray.webp"},
-      {name:"WD40 Spray",image:"images/products/spare-parts/wd40-spray.webp"}
+      {name:"Spot Lifter 69",image:"images/products-branded/spare-parts/spot-lifter-blue-69.webp"},
+      {name:"Spot Lifter 68",image:"images/products-branded/spare-parts/spot-lifter-green-68.webp"},
+      {name:"W100 Spray",image:"images/products-branded/spare-parts/w100-spray.webp"},
+      {name:"WARCO Spray",image:"images/products-branded/spare-parts/warco-spray.webp"},
+      {name:"WD40 Spray",image:"images/products-branded/spare-parts/wd40-spray.webp"}
     ]
   }
 };
@@ -2578,7 +2578,7 @@ function renderProduct(key){
     const choices=[
       {
         name:"Sprays",
-        image:"images/products/spare-parts/sprays-cover.png",
+        image:"images/products-branded/spare-parts/sprays-cover.png",
         description: currentLanguage==="ur"
           ? "Spot Lifter اور دیگر sprays دیکھیں۔"
           : "Open sprays such as Spot Lifter and related products."
@@ -2939,23 +2939,28 @@ function renderNeedlesCatalogue(container){
     {
       name:"Orange Needle #11",
       brand:"Orange Needle",
-      image:"images/products-branded/needles/orange-11.png"
+      image:"images/products-branded/needles/orange-11.png",
+      href:"/products/needles/orange-needle-11/"
     },
     {
       name:"Orange Needle #14",
       brand:"Orange Needle",
-      image:"images/products-branded/needles/orange-14.png"
+      image:"images/products-branded/needles/orange-14.png",
+      href:"/products/needles/orange-needle-14/"
     },
     {
       name:"Groz-Beckert #14",
       brand:"Groz-Beckert",
-      image:"images/products-branded/needles/groz-beckert-14.png"
+      image:"images/products-branded/needles/groz-beckert-14.png",
+      href:"/products/needles/groz-beckert-14/"
     }
   ];
 
   needles.forEach((item,index)=>{
-    const card=document.createElement("article");
+    const card=document.createElement("a");
     card.className="crystal-card";
+    card.href=item.href;
+    card.setAttribute("aria-label",item.name+" product details");
 
     card.innerHTML=`
       <div class="crystal-image watermark-target">

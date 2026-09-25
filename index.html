@@ -2690,63 +2690,22 @@ function renderProduct(key){
     carousel.innerHTML=`
       <div class="metallic-brand-track">
         ${loop.map(brand=>`
-          <div
+          <a
             class="metallic-brand-chip"
-            data-brand="${brand}"
-            role="button"
-            tabindex="0"
+            href="/products/${brand.toLowerCase()}/"
+            aria-label="Open ${brand} Metallic Yarn catalogue"
           >
             <img
               src="${metallicBrandLogos[brand]}"
               alt="${brand} Metallic Yarn logo"
               loading="lazy"
             >
-          </div>
+          </a>
         `).join("")}
       </div>
     `;
 
     grid.appendChild(carousel);
-
-    /*
-      COLORED carousel logos become real anchor elements.
-      This bypasses every old JS navigation problem.
-    */
-    carousel
-      .querySelectorAll('.metallic-brand-chip[data-brand="Colored"]')
-      .forEach(oldChip=>{
-
-        const link=document.createElement("a");
-
-        link.href="/products/colored/";
-        link.className=oldChip.className;
-        link.dataset.brand="Colored";
-        link.setAttribute("role","link");
-        link.setAttribute("aria-label","Open Colored Metallic Yarn catalogue");
-
-        link.innerHTML=oldChip.innerHTML;
-
-        oldChip.replaceWith(link);
-      });
-
-    carousel.querySelectorAll(".metallic-brand-chip").forEach(chip=>{
-      const brand=chip.dataset.brand;
-
-      if(["Crystal","Colored","Shamuk"].includes(brand)){
-        chip.style.cursor="pointer";
-
-        chip.onclick=()=>{
-          openMetallicFamily(brand);
-        };
-
-        chip.onkeydown=event=>{
-          if(event.key==="Enter" || event.key===" "){
-            event.preventDefault();
-            openMetallicFamily(brand);
-          }
-        };
-      }
-    });
   }
 
   if(product.groups){

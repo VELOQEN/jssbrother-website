@@ -4,247 +4,340 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Spare Parts | JSS Brothers</title>
-<style>
-:root{
-  --ink:#0d2530;
-  --muted:#64757c;
-  --line:#dfe7e9;
-  --paper:#f7f9f8;
-  --white:#fff;
-  --accent:#005f73;
-}
+<meta name="description" content="Explore Spare Parts in the JSS Brothers product catalogue.">
+<link rel="canonical" href="https://jssbrother.com/products/spare-parts/">
+
+<style id="jss-unified-catalogue">
 *{box-sizing:border-box}
+
+html{
+  background:#08101d;
+}
+
 body{
   margin:0;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(37,99,235,.18),transparent 32%),
+    #08101d;
+  color:#f7f9fc;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
+  min-height:100vh;
 }
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  padding:22px 5vw;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-.brand{
-  font-weight:900;
-  letter-spacing:.12em;
+
+a{
+  color:inherit;
   text-decoration:none;
-  color:var(--ink);
 }
-.back{
-  text-decoration:none;
-  color:var(--accent);
-  font-weight:700;
-}
-.hero{
-  padding:72px 5vw 42px;
-  max-width:1450px;
+
+.wrap{
+  width:min(1240px,calc(100% - 40px));
   margin:auto;
 }
-.kicker{
-  color:var(--accent);
+
+header{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.brand{
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.back{
+  padding:11px 17px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
   font-size:12px;
-  font-weight:800;
+}
+
+.hero{
+  padding:70px 0 45px;
+}
+
+.kicker{
+  color:#7fb0ff;
+  font-size:10px;
   letter-spacing:.18em;
+  font-weight:800;
   text-transform:uppercase;
 }
+
 h1{
-  font-size:clamp(42px,7vw,92px);
-  line-height:.92;
-  margin:14px 0 20px;
-  letter-spacing:-.05em;
+  margin:10px 0 13px;
+  font-size:clamp(42px,6vw,76px);
+  line-height:.95;
+  letter-spacing:-.055em;
 }
-.hero p{
-  max-width:720px;
-  font-size:18px;
-  line-height:1.65;
-  color:var(--muted);
+
+.sub{
+  max-width:650px;
+  color:rgba(255,255,255,.62);
+  font-size:14px;
+  line-height:1.7;
 }
+
 .grid{
-  max-width:1450px;
-  margin:auto;
-  padding:12px 5vw 80px;
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:22px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+  padding-bottom:80px;
 }
-.product-card{
-  text-decoration:none;
-  color:inherit;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
+
+.section-title{
+  grid-column:1/-1;
+  margin:16px 0 3px;
+  padding:0 2px 17px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.section-title:first-child{
+  margin-top:0;
+}
+
+.section-title small{
+  display:block;
+  color:#7fb0ff;
+  font-size:9px;
+  letter-spacing:.16em;
+  margin-bottom:7px;
+}
+
+.section-title strong{
+  font-size:25px;
+}
+
+.card{
   overflow:hidden;
-  transition:transform .18s ease,box-shadow .18s ease;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  transition:.25s;
 }
-a.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 36px rgba(15,40,50,.10);
+
+.card:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.06);
 }
-.product-image{
-  aspect-ratio:4/3;
+
+.image{
+  aspect-ratio:1.22/1;
+  background:#fff;
+  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#eef2f2;
-  overflow:hidden;
 }
-.product-image img{
+
+.image img{
   width:100%;
   height:100%;
-  object-fit:cover;
-}
-.product-info{
-  padding:18px 18px 20px;
-}
-.product-info small{
+  object-fit:contain;
+  object-position:center;
   display:block;
-  color:var(--accent);
-  font-weight:800;
+  padding:8px;
+}
+
+.info{
+  padding:19px 20px 22px;
+}
+
+.info small{
+  display:block;
+  color:#7fb0ff;
+  font-size:9px;
   letter-spacing:.12em;
-  margin-bottom:7px;
+  margin-bottom:10px;
   text-transform:uppercase;
 }
-.product-info strong{
-  font-size:18px;
+
+.info strong{
+  font-size:21px;
 }
+
+.info p{
+  color:rgba(255,255,255,.52);
+  font-size:11px;
+  margin:8px 0 0;
+}
+
 .coming{
-  max-width:1450px;
-  margin:auto;
-  padding:20px 5vw 100px;
-}
-.coming-box{
-  min-height:330px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:24px;
+  grid-column:1/-1;
+  min-height:280px;
+  border:1px dashed rgba(127,176,255,.30);
+  border-radius:22px;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
+  background:rgba(255,255,255,.025);
   padding:40px;
 }
-.coming-box strong{
-  font-size:36px;
-  margin-bottom:12px;
+
+.coming strong{
+  display:block;
+  font-size:32px;
 }
-.coming-box p{
-  color:var(--muted);
+
+.coming p{
+  color:rgba(255,255,255,.55);
+  line-height:1.7;
   max-width:560px;
-  line-height:1.6;
 }
+
 footer{
-  border-top:1px solid var(--line);
-  padding:30px 5vw;
-  color:var(--muted);
-  background:#fff;
+  border-top:1px solid rgba(255,255,255,.10);
+  padding:30px 0;
+  color:rgba(255,255,255,.50);
+  font-size:11px;
 }
-@media(max-width:1050px){
-  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+@media(max-width:850px){
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
-@media(max-width:760px){
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-  .hero{padding-top:50px}
-}
-@media(max-width:520px){
-  .grid{grid-template-columns:1fr}
+
+@media(max-width:580px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .wrap{
+    width:min(100% - 26px,1240px);
+  }
 }
 </style>
+
 </head>
+
 <body>
-<header class="topbar">
+
+<header class="wrap">
   <a class="brand" href="/">JSS BROTHERS</a>
-  <a class="back" href="/#catalogue">← Back to catalogue</a>
+  <a class="back" href="/#catalogue">← Back to Materials</a>
 </header>
+
+<main class="wrap">
 
 <section class="hero">
   <div class="kicker">SPARE PARTS</div>
   <h1>Spare Parts</h1>
-  <p>Machinery-use essentials, sprays and White Oil supplied by JSS Brothers.</p>
+  <div class="sub">Machinery-use essentials, sprays and White Oil supplied by JSS Brothers.</div>
 </section>
 
-<main class="grid">
-      <a class="product-card" href="./spot-lifter-69/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/spot-lifter-blue-69.webp" alt="Spot Lifter 69 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>Spot Lifter 69</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./spot-lifter-68/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/spot-lifter-green-68.webp" alt="Spot Lifter 68 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>Spot Lifter 68</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./w100/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/w100-spray.webp" alt="W100 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>W100</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./warco/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/warco-spray.webp" alt="WARCO - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>WARCO</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./wd40/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/wd40-spray.webp" alt="WD40 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>WD40</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./white-oil-bottle/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/white-oil-bottle.webp" alt="White Oil Bottle - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>White Oil Bottle</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./white-oil-can/">
-        <div class="product-image">
-          <img src="/images/products/spare-parts/white-oil-can.webp" alt="White Oil Can - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Spare Parts</small>
-          <strong>White Oil Can</strong>
-        </div>
-      </a>
-    </main>
+<section class="grid">
+
+<a class="card" href="./spot-lifter-69/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/spot-lifter-blue-69.webp"
+      alt="Spot Lifter 69 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 01</small>
+    <strong>Spot Lifter 69</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+<a class="card" href="./spot-lifter-68/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/spot-lifter-green-68.webp"
+      alt="Spot Lifter 68 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 02</small>
+    <strong>Spot Lifter 68</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+<a class="card" href="./w100/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/w100-spray.webp"
+      alt="W100 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 03</small>
+    <strong>W100</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+<a class="card" href="./warco/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/warco-spray.webp"
+      alt="WARCO - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 04</small>
+    <strong>WARCO</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+<a class="card" href="./wd40/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/wd40-spray.webp"
+      alt="WD40 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 05</small>
+    <strong>WD40</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+<a class="card" href="./white-oil-bottle/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/white-oil-bottle.webp"
+      alt="White Oil Bottle - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 06</small>
+    <strong>White Oil Bottle</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+<a class="card" href="./white-oil-can/">
+  <div class="image">
+    <img
+      src="/images/products/spare-parts/white-oil-can.webp"
+      alt="White Oil Can - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>Spare Parts • 07</small>
+    <strong>White Oil Can</strong>
+    <p>JSS Brothers</p>
+  </div>
+</a>
+</section>
+
+</main>
 
 <footer>
-  © 2026 JSS Brothers · Since 2010 · 17 Years
+  <div class="wrap">
+    © 2026 JSS Brothers · Since 2010 · 17 Years
+  </div>
 </footer>
 
 <script src="/branding-loader.js?v=1"></script>

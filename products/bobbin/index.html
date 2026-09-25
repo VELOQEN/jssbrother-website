@@ -4,757 +4,1070 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Bobin | JSS Brothers</title>
-<style>
-:root{
-  --ink:#0d2530;
-  --muted:#64757c;
-  --line:#dfe7e9;
-  --paper:#f7f9f8;
-  --white:#fff;
-  --accent:#005f73;
-}
+<link rel="canonical" href="https://jssbrother.com/products/bobbin/">
+<meta name="description" content="Browse White Bobin and Colored Bobin supplied by JSS Brothers.">
+
+<style id="jss-unified-catalogue">
 *{box-sizing:border-box}
+
+html{
+  background:#08101d;
+}
+
 body{
   margin:0;
+  background:
+    radial-gradient(circle at 80% 10%,rgba(37,99,235,.18),transparent 32%),
+    #08101d;
+  color:#f7f9fc;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--paper);
-  color:var(--ink);
+  min-height:100vh;
 }
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:20px;
-  padding:22px 5vw;
-  background:#fff;
-  border-bottom:1px solid var(--line);
-  position:sticky;
-  top:0;
-  z-index:10;
-}
-.brand{
-  font-weight:900;
-  letter-spacing:.12em;
+
+a{
+  color:inherit;
   text-decoration:none;
-  color:var(--ink);
 }
-.back{
-  text-decoration:none;
-  color:var(--accent);
-  font-weight:700;
-}
-.hero{
-  padding:72px 5vw 42px;
-  max-width:1450px;
+
+.wrap{
+  width:min(1240px,calc(100% - 40px));
   margin:auto;
 }
-.kicker{
-  color:var(--accent);
+
+header{
+  min-height:84px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.brand{
+  font-size:19px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+.back{
+  padding:11px 17px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
   font-size:12px;
-  font-weight:800;
+}
+
+.hero{
+  padding:70px 0 45px;
+}
+
+.kicker{
+  color:#7fb0ff;
+  font-size:10px;
   letter-spacing:.18em;
+  font-weight:800;
   text-transform:uppercase;
 }
+
 h1{
-  font-size:clamp(42px,7vw,92px);
-  line-height:.92;
-  margin:14px 0 20px;
-  letter-spacing:-.05em;
+  margin:10px 0 13px;
+  font-size:clamp(42px,6vw,76px);
+  line-height:.95;
+  letter-spacing:-.055em;
 }
-.hero p{
-  max-width:720px;
-  font-size:18px;
-  line-height:1.65;
-  color:var(--muted);
+
+.sub{
+  max-width:650px;
+  color:rgba(255,255,255,.62);
+  font-size:14px;
+  line-height:1.7;
 }
+
 .grid{
-  max-width:1450px;
-  margin:auto;
-  padding:12px 5vw 80px;
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:22px;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:15px;
+  padding-bottom:80px;
 }
-.product-card{
-  text-decoration:none;
-  color:inherit;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
+
+.section-title{
+  grid-column:1/-1;
+  margin:16px 0 3px;
+  padding:0 2px 17px;
+  border-bottom:1px solid rgba(255,255,255,.10);
+}
+
+.section-title:first-child{
+  margin-top:0;
+}
+
+.section-title small{
+  display:block;
+  color:#7fb0ff;
+  font-size:9px;
+  letter-spacing:.16em;
+  margin-bottom:7px;
+}
+
+.section-title strong{
+  font-size:25px;
+}
+
+.card{
   overflow:hidden;
-  transition:transform .18s ease,box-shadow .18s ease;
+  border:1px solid rgba(255,255,255,.11);
+  border-radius:20px;
+  background:rgba(255,255,255,.035);
+  transition:.25s;
 }
-a.product-card:hover{
-  transform:translateY(-4px);
-  box-shadow:0 14px 36px rgba(15,40,50,.10);
+
+.card:hover{
+  transform:translateY(-5px);
+  background:rgba(255,255,255,.06);
 }
-.product-image{
-  aspect-ratio:4/3;
+
+.image{
+  aspect-ratio:1.22/1;
+  background:#fff;
+  overflow:hidden;
   display:flex;
   align-items:center;
   justify-content:center;
-  background:#eef2f2;
-  overflow:hidden;
 }
-.product-image img{
+
+.image img{
   width:100%;
   height:100%;
-  object-fit:cover;
-}
-.product-info{
-  padding:18px 18px 20px;
-}
-.product-info small{
+  object-fit:contain;
+  object-position:center;
   display:block;
-  color:var(--accent);
-  font-weight:800;
+  padding:8px;
+}
+
+.info{
+  padding:19px 20px 22px;
+}
+
+.info small{
+  display:block;
+  color:#7fb0ff;
+  font-size:9px;
   letter-spacing:.12em;
-  margin-bottom:7px;
+  margin-bottom:10px;
   text-transform:uppercase;
 }
-.product-info strong{
-  font-size:18px;
+
+.info strong{
+  font-size:21px;
 }
+
+.info p{
+  color:rgba(255,255,255,.52);
+  font-size:11px;
+  margin:8px 0 0;
+}
+
 .coming{
-  max-width:1450px;
-  margin:auto;
-  padding:20px 5vw 100px;
-}
-.coming-box{
-  min-height:330px;
-  background:#fff;
-  border:1px solid var(--line);
-  border-radius:24px;
+  grid-column:1/-1;
+  min-height:280px;
+  border:1px dashed rgba(127,176,255,.30);
+  border-radius:22px;
   display:flex;
-  flex-direction:column;
   align-items:center;
   justify-content:center;
   text-align:center;
+  background:rgba(255,255,255,.025);
   padding:40px;
 }
-.coming-box strong{
-  font-size:36px;
-  margin-bottom:12px;
+
+.coming strong{
+  display:block;
+  font-size:32px;
 }
-.coming-box p{
-  color:var(--muted);
+
+.coming p{
+  color:rgba(255,255,255,.55);
+  line-height:1.7;
   max-width:560px;
-  line-height:1.6;
 }
+
 footer{
-  border-top:1px solid var(--line);
-  padding:30px 5vw;
-  color:var(--muted);
-  background:#fff;
+  border-top:1px solid rgba(255,255,255,.10);
+  padding:30px 0;
+  color:rgba(255,255,255,.50);
+  font-size:11px;
 }
-@media(max-width:1050px){
-  .grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+
+@media(max-width:850px){
+  .grid{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
 }
-@media(max-width:760px){
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-  .hero{padding-top:50px}
-}
-@media(max-width:520px){
-  .grid{grid-template-columns:1fr}
+
+@media(max-width:580px){
+  .grid{
+    grid-template-columns:1fr;
+  }
+
+  .wrap{
+    width:min(100% - 26px,1240px);
+  }
 }
 </style>
+
 </head>
+
 <body>
-<header class="topbar">
-  <a class="brand" href="/">JSS BROTHERS</a>
-  <a class="back" href="/#catalogue">← Back to catalogue</a>
+
+<header class="wrap">
+  <a class="brand" href="/products/bobbin/20-pp-big/">JSS BROTHERS</a>
+  <a class="back" href="/#catalogue">← Back to Materials</a>
 </header>
+
+<main class="wrap">
 
 <section class="hero">
   <div class="kicker">BOBIN</div>
   <h1>Bobin</h1>
-  <p>White and colored Bobin products available from JSS Brothers.</p>
+  <div class="sub">
+    Browse White Bobin and Colored Bobin products supplied by JSS Brothers.
+  </div>
 </section>
 
-<main class="grid">
-      <a class="product-card" href="./30-pp-small/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/white/30pp-small.png" alt="30 PP Small - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30 PP Small</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30-pp-big/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/white/30pp-big.png" alt="30 PP Big - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30 PP Big</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./20-pp-big/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/white/20pp-big.png" alt="20 PP Big - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>20 PP Big</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1000/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1000.webp" alt="30PP 1000 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1000</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1017/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1017.webp" alt="30PP 1017 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1017</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1019/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1019.webp" alt="30PP 1019 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1019</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1023/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1023.webp" alt="30PP 1023 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1023</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1024/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1024.webp" alt="30PP 1024 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1024</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1025/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1025.webp" alt="30PP 1025 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1025</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1032/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1032.webp" alt="30PP 1032 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1032</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1041/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1041.webp" alt="30PP 1041 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1041</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1052/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1052.webp" alt="30PP 1052 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1052</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1054/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1054.webp" alt="30PP 1054 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1054</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1055/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1055.webp" alt="30PP 1055 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1055</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1056/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1056.webp" alt="30PP 1056 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1056</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1057/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1057.webp" alt="30PP 1057 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1057</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1058/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1058.webp" alt="30PP 1058 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1058</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1060/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1060.webp" alt="30PP 1060 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1060</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1063/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1063.webp" alt="30PP 1063 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1063</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1070/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1070.webp" alt="30PP 1070 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1070</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1084/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1084.webp" alt="30PP 1084 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1084</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1090/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1090.webp" alt="30PP 1090 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1090</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1092/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1092.webp" alt="30PP 1092 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1092</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1098/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1098.webp" alt="30PP 1098 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1098</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1100/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1100.webp" alt="30PP 1100 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1100</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1105/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1105.webp" alt="30PP 1105 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1105</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1110/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1110.webp" alt="30PP 1110 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1110</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1119/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1119.webp" alt="30PP 1119 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1119</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1122/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1122.webp" alt="30PP 1122 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1122</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1128/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1128.webp" alt="30PP 1128 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1128</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1133/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1133.webp" alt="30PP 1133 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1133</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1147/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1147.webp" alt="30PP 1147 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1147</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1159/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1159.webp" alt="30PP 1159 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1159</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1166/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1166.webp" alt="30PP 1166 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1166</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1181/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1181.webp" alt="30PP 1181 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1181</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1185/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1185.webp" alt="30PP 1185 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1185</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1186/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1186.webp" alt="30PP 1186 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1186</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1188/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1188.webp" alt="30PP 1188 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1188</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1191/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1191.webp" alt="30PP 1191 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1191</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1226/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1226.webp" alt="30PP 1226 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1226</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1248/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1248.webp" alt="30PP 1248 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1248</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1249/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1249.webp" alt="30PP 1249 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1249</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1311/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1311.webp" alt="30PP 1311 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1311</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1321/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1321.webp" alt="30PP 1321 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1321</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1363/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1363.webp" alt="30PP 1363 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1363</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1376/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1376.webp" alt="30PP 1376 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1376</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1390/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1390.webp" alt="30PP 1390 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1390</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-1394/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/1394.webp" alt="30PP 1394 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 1394</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-2071/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/2071.webp" alt="30PP 2071 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 2071</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-2226/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/2226.webp" alt="30PP 2226 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 2226</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3227/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3227.webp" alt="30PP 3227 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3227</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3235/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3235.webp" alt="30PP 3235 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3235</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3410/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3410.webp" alt="30PP 3410 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3410</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3418/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3418.webp" alt="30PP 3418 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3418</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3442/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3442.webp" alt="30PP 3442 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3442</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3748/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3748.webp" alt="30PP 3748 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3748</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-3779/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/3779.webp" alt="30PP 3779 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 3779</strong>
-        </div>
-      </a>
-    
-      <a class="product-card" href="./30pp-6008/">
-        <div class="product-image">
-          <img src="/images/products/bobbin/30pp/6008.webp" alt="30PP 6008 - JSS Brothers" loading="lazy">
-        </div>
-        <div class="product-info">
-          <small>Bobin</small>
-          <strong>30PP 6008</strong>
-        </div>
-      </a>
-    </main>
+<section class="grid">
+
+<div class="section-title">
+  <small>BOBIN • 01</small>
+  <strong>White Bobin</strong>
+</div>
+
+
+<a class="card" href="./30-pp-small/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/white/30pp-small.png"
+      alt="30 PP Small - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>WHITE BOBIN • 01</small>
+    <strong>30 PP Small</strong>
+    <p>WHITE BOBIN</p>
+  </div>
+</a>
+<a class="card" href="./30-pp-big/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/white/30pp-big.png"
+      alt="30 PP Big - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>WHITE BOBIN • 02</small>
+    <strong>30 PP Big</strong>
+    <p>WHITE BOBIN</p>
+  </div>
+</a>
+<a class="card" href="./20-pp-big/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/white/20pp-big.png"
+      alt="20 PP Big - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>WHITE BOBIN • 03</small>
+    <strong>20 PP Big</strong>
+    <p>WHITE BOBIN</p>
+  </div>
+</a>
+
+<div class="section-title">
+  <small>BOBIN • 02</small>
+  <strong>Colored Bobin</strong>
+</div>
+
+
+<a class="card" href="./30pp-1000/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1000.webp"
+      alt="30PP 1000 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 01</small>
+    <strong>30PP 1000</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1017/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1017.webp"
+      alt="30PP 1017 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 02</small>
+    <strong>30PP 1017</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1019/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1019.webp"
+      alt="30PP 1019 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 03</small>
+    <strong>30PP 1019</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1023/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1023.webp"
+      alt="30PP 1023 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 04</small>
+    <strong>30PP 1023</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1024/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1024.webp"
+      alt="30PP 1024 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 05</small>
+    <strong>30PP 1024</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1025/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1025.webp"
+      alt="30PP 1025 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 06</small>
+    <strong>30PP 1025</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1032/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1032.webp"
+      alt="30PP 1032 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 07</small>
+    <strong>30PP 1032</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1041/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1041.webp"
+      alt="30PP 1041 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 08</small>
+    <strong>30PP 1041</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1052/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1052.webp"
+      alt="30PP 1052 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 09</small>
+    <strong>30PP 1052</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1054/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1054.webp"
+      alt="30PP 1054 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 10</small>
+    <strong>30PP 1054</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1055/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1055.webp"
+      alt="30PP 1055 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 11</small>
+    <strong>30PP 1055</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1056/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1056.webp"
+      alt="30PP 1056 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 12</small>
+    <strong>30PP 1056</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1057/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1057.webp"
+      alt="30PP 1057 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 13</small>
+    <strong>30PP 1057</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1058/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1058.webp"
+      alt="30PP 1058 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 14</small>
+    <strong>30PP 1058</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1060/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1060.webp"
+      alt="30PP 1060 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 15</small>
+    <strong>30PP 1060</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1063/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1063.webp"
+      alt="30PP 1063 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 16</small>
+    <strong>30PP 1063</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1070/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1070.webp"
+      alt="30PP 1070 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 17</small>
+    <strong>30PP 1070</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1084/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1084.webp"
+      alt="30PP 1084 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 18</small>
+    <strong>30PP 1084</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1090/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1090.webp"
+      alt="30PP 1090 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 19</small>
+    <strong>30PP 1090</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1092/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1092.webp"
+      alt="30PP 1092 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 20</small>
+    <strong>30PP 1092</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1098/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1098.webp"
+      alt="30PP 1098 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 21</small>
+    <strong>30PP 1098</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1100/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1100.webp"
+      alt="30PP 1100 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 22</small>
+    <strong>30PP 1100</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1105/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1105.webp"
+      alt="30PP 1105 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 23</small>
+    <strong>30PP 1105</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1110/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1110.webp"
+      alt="30PP 1110 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 24</small>
+    <strong>30PP 1110</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1119/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1119.webp"
+      alt="30PP 1119 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 25</small>
+    <strong>30PP 1119</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1122/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1122.webp"
+      alt="30PP 1122 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 26</small>
+    <strong>30PP 1122</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1128/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1128.webp"
+      alt="30PP 1128 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 27</small>
+    <strong>30PP 1128</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1133/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1133.webp"
+      alt="30PP 1133 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 28</small>
+    <strong>30PP 1133</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1147/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1147.webp"
+      alt="30PP 1147 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 29</small>
+    <strong>30PP 1147</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1159/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1159.webp"
+      alt="30PP 1159 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 30</small>
+    <strong>30PP 1159</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1166/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1166.webp"
+      alt="30PP 1166 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 31</small>
+    <strong>30PP 1166</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1181/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1181.webp"
+      alt="30PP 1181 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 32</small>
+    <strong>30PP 1181</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1185/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1185.webp"
+      alt="30PP 1185 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 33</small>
+    <strong>30PP 1185</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1186/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1186.webp"
+      alt="30PP 1186 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 34</small>
+    <strong>30PP 1186</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1188/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1188.webp"
+      alt="30PP 1188 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 35</small>
+    <strong>30PP 1188</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1191/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1191.webp"
+      alt="30PP 1191 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 36</small>
+    <strong>30PP 1191</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1226/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1226.webp"
+      alt="30PP 1226 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 37</small>
+    <strong>30PP 1226</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1248/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1248.webp"
+      alt="30PP 1248 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 38</small>
+    <strong>30PP 1248</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1249/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1249.webp"
+      alt="30PP 1249 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 39</small>
+    <strong>30PP 1249</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1311/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1311.webp"
+      alt="30PP 1311 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 40</small>
+    <strong>30PP 1311</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1321/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1321.webp"
+      alt="30PP 1321 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 41</small>
+    <strong>30PP 1321</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1363/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1363.webp"
+      alt="30PP 1363 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 42</small>
+    <strong>30PP 1363</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1376/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1376.webp"
+      alt="30PP 1376 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 43</small>
+    <strong>30PP 1376</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1390/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1390.webp"
+      alt="30PP 1390 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 44</small>
+    <strong>30PP 1390</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-1394/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/1394.webp"
+      alt="30PP 1394 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 45</small>
+    <strong>30PP 1394</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-2071/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/2071.webp"
+      alt="30PP 2071 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 46</small>
+    <strong>30PP 2071</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-2226/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/2226.webp"
+      alt="30PP 2226 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 47</small>
+    <strong>30PP 2226</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3227/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3227.webp"
+      alt="30PP 3227 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 48</small>
+    <strong>30PP 3227</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3235/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3235.webp"
+      alt="30PP 3235 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 49</small>
+    <strong>30PP 3235</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3410/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3410.webp"
+      alt="30PP 3410 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 50</small>
+    <strong>30PP 3410</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3418/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3418.webp"
+      alt="30PP 3418 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 51</small>
+    <strong>30PP 3418</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3442/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3442.webp"
+      alt="30PP 3442 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 52</small>
+    <strong>30PP 3442</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3748/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3748.webp"
+      alt="30PP 3748 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 53</small>
+    <strong>30PP 3748</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-3779/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/3779.webp"
+      alt="30PP 3779 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 54</small>
+    <strong>30PP 3779</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+<a class="card" href="/products/bobbin/30pp-6008/">
+  <div class="image">
+    <img
+      src="/images/products/bobbin/30pp/6008.webp"
+      alt="30PP 6008 - JSS Brothers"
+      loading="lazy"
+    >
+  </div>
+  <div class="info">
+    <small>COLORED BOBIN • 55</small>
+    <strong>30PP 6008</strong>
+    <p>COLORED BOBIN</p>
+  </div>
+</a>
+
+</section>
+
+</main>
 
 <footer>
-  © 2026 JSS Brothers · Since 2010 · 17 Years
+  <div class="wrap">
+    © 2026 JSS Brothers · Since 2010 · 17 Years
+  </div>
 </footer>
 
 <script src="/branding-loader.js?v=1"></script>

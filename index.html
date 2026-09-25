@@ -155,7 +155,7 @@ img{display:block;max-width:100%}
   padding:0;
   box-shadow:none;
 }
-.hero-content{position:relative;z-index:3;max-width:920px}
+.hero-content{position:relative;z-index:3;max-width:920px;min-width:0;width:100%}
 .eyebrow{
   display:flex;align-items:center;gap:12px;color:var(--blue2);
   font-size:9px;letter-spacing:.23em;text-transform:uppercase;
@@ -171,7 +171,7 @@ img{display:block;max-width:100%}
 
 @media (max-width:600px){
   .hero h1{
-    font-size:clamp(36px,10.5vw,52px);
+    font-size:clamp(27px,7.7vw,42px);
     line-height:.96;
     letter-spacing:-.035em;
     overflow-wrap:normal;
@@ -960,7 +960,7 @@ img{display:block;max-width:100%}
 }
 @media(max-width:700px){
   .site-header{padding:0 17px}.brand-logo{width:90px;height:48px}.brand-copy{display:none}
-  .hero{padding:0 20px 48px}.hero h1{font-size:clamp(60px,18vw,93px)}.hero-watermark{display:none}
+  .hero{padding:0 20px 48px}.hero-content{max-width:calc(100vw - 40px)}.hero-description{max-width:calc(100vw - 40px)}.hero h1{font-size:clamp(27px,7.7vw,42px);line-height:1.02}.hero-watermark{display:none}
   .section{padding:90px 20px}.section-heading{grid-template-columns:1fr;gap:28px}
   .sticky-story{padding:0 20px}.story-image{height:270px}
   .category-navigation{grid-template-columns:repeat(2,1fr)}.catalogue-panel{padding:22px}
@@ -2273,6 +2273,29 @@ const sequenceData = {
   }
 };
 
+
+const CATALOGUE_ROUTES = {
+  metallic: null,
+  bobin: "/products/bobbin/",
+  solving: "/products/solving/",
+  dissolving: "/products/dissolving/",
+  sequence: "/products/sequence/",
+  needles: "/products/needles/",
+  polyester: "/products/polyester/",
+  fusing: "/products/fusing/",
+  nylon: "/products/nylon/",
+  panni: "/products/panni/",
+  parts: "/products/spare-parts/"
+};
+
+const METALLIC_FAMILY_ROUTES = {
+  Colored: "/products/colored/",
+  Crystal: "/products/crystal/",
+  Stylo: "/products/stylo/",
+  Shamuk: "/products/shamuk/",
+  Markfil: "/products/markfil/"
+};
+
 const categoryOrder = ["metallic","bobin","solving","dissolving","sequence","needles","polyester","fusing","nylon","panni","parts"];
 const navigation = document.getElementById("categoryNavigation");
 
@@ -2361,36 +2384,14 @@ function openMetallicFamily(brand){
 
 function createProductCard(item,number){
 
-  /* COLORED MUST BE A REAL SEPARATE PAGE LINK */
-  if(item==="Colored"){
-    const card=document.createElement("a");
+  const destination=METALLIC_FAMILY_ROUTES[item] || null;
+  const card=document.createElement(destination ? "a" : "div");
 
-    card.href="/products/colored/";
-    card.className="product-item metallic-product-item";
-
-    const brandLogo=metallicBrandLogos[item];
-
-    card.innerHTML=`
-      <div class="metallic-product-copy">
-        <img
-          class="metallic-product-logo"
-          src="${brandLogo}"
-          alt="Colored Metallic Yarn logo"
-        >
-        <div>
-          <small>${number}</small>
-          <strong>${translateCatalogueTerm(item)}</strong>
-        </div>
-      </div>
-
-      <span class="arrow">↗</span>
-    `;
-
-    return card;
-  }
-
-  const card=document.createElement("div");
   card.className="product-item";
+
+  if(destination){
+    card.href=destination;
+  }
 
   const brandLogo=metallicBrandLogos[item];
 
@@ -2422,26 +2423,8 @@ function createProductCard(item,number){
     `;
   }
 
-  if(["Crystal","Colored","Shamuk"].includes(item)){
-    card.setAttribute("role","button");
-    card.setAttribute("tabindex","0");
-    card.style.cursor="pointer";
-
-    card.onclick=()=>{
-      openMetallicFamily(item);
-    };
-
-    card.onkeydown=event=>{
-      if(event.key==="Enter" || event.key===" "){
-        event.preventDefault();
-        openMetallicFamily(item);
-      }
-    };
-  }
-
   return card;
 }
-
 
 const crystalShadeUrdu = {
   "1128 Zebra":"1128 زیبرا",
@@ -2834,8 +2817,16 @@ function renderBobinCatalogue(container){
   ];
 
   whiteBobins.forEach((item,index)=>{
-    const card=document.createElement("article");
+    const card=document.createElement("a");
     card.className="crystal-card";
+
+    const whiteSlug =
+      item.name
+        .toLowerCase()
+        .replace(/\s+/g,"-");
+
+    card.href =
+      `/products/bobbin/${whiteSlug}/`;
 
     card.innerHTML=`
       <div class="crystal-image watermark-target">
@@ -2881,8 +2872,11 @@ function renderBobinCatalogue(container){
   coloredGrid.className="crystal-grid";
 
   catalogueImageSets.bobbin30pp.items.forEach((item,index)=>{
-    const card=document.createElement("div");
+    const card=document.createElement("a");
     card.className="crystal-card";
+
+    card.href =
+      `/products/bobbin/30pp-${item.name}/`;
 
     card.innerHTML=`
       <div class="crystal-image watermark-target">
@@ -3143,115 +3137,7 @@ window.addEventListener("scroll",()=>{
 
 </script>
 <script src="/branding-loader.js?v=1"></script>
-<script src="/catalogue-navigation.js?v=1"></script>
-<script>
 
-/* ===== DIRECT CATALOGUE PAGE ROUTES ===== */
 
-(function(){
-
-  const ROUTES = {
-    "colored": "/products/colored/",
-    "crystal": "/products/crystal/",
-    "stylo": "/products/stylo/",
-    "shamuk": "/products/shamuk/",
-    "markfil": "/products/markfil/",
-    "bobin": "/products/bobbin/",
-    "bobbin": "/products/bobbin/",
-    "solving": "/products/solving/",
-    "dissolving": "/products/dissolving/",
-    "sequence / cd": "/products/sequence/",
-    "sequence": "/products/sequence/",
-    "needles": "/products/needles/",
-    "polyester": "/products/polyester/",
-    "fusing": "/products/fusing/",
-    "nylon": "/products/nylon/",
-    "panni": "/products/panni/",
-    "spare parts": "/products/spare-parts/"
-  };
-
-  function cleanText(el){
-    return (el?.textContent || "")
-      .replace(/\s+/g," ")
-      .trim()
-      .toLowerCase();
-  }
-
-  function getRoute(el){
-    const text = cleanText(el);
-
-    for(const [label,url] of Object.entries(ROUTES)){
-      if(
-        text === label ||
-        text.startsWith(label + " ") ||
-        text.includes(" " + label + " ") ||
-        text.endsWith(" " + label)
-      ){
-        return url;
-      }
-    }
-
-    return null;
-  }
-
-  document.addEventListener("click", function(event){
-
-    const card = event.target.closest(
-      ".product-card,.catalogue-card,.crystal-card,.product-item,.catalog-item,button,a"
-    );
-
-    if(!card) return;
-
-    const grid = document.getElementById("productGrid");
-
-    if(grid && !grid.contains(card)){
-      return;
-    }
-
-    const route = getRoute(card);
-
-    if(!route) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-
-    window.location.assign(route);
-
-  }, true);
-
-  document.addEventListener("keydown", function(event){
-
-    if(event.key !== "Enter" && event.key !== " ") return;
-
-    const card = event.target.closest(
-      ".product-card,.catalogue-card,.crystal-card,.product-item,.catalog-item,button,a"
-    );
-
-    if(!card) return;
-
-    const grid = document.getElementById("productGrid");
-
-    if(grid && !grid.contains(card)){
-      return;
-    }
-
-    const route = getRoute(card);
-
-    if(!route) return;
-
-    event.preventDefault();
-    event.stopPropagation();
-    event.stopImmediatePropagation();
-
-    window.location.assign(route);
-
-  }, true);
-
-})();
-
-/* ===== END DIRECT CATALOGUE PAGE ROUTES ===== */
-
-</script>
 </body>
 </html>

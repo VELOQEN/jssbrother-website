@@ -1,125 +1,161 @@
 (() => {
 
-  /*
-   * JSS BROTHERS — CENTRAL PRODUCT BRANDING
-   *
-   * Product data continues using:
-   * images/products/...
-   *
-   * The website automatically displays:
-   * images/products-branded/...
-   *
-   * Therefore future catalogue products only need their normal
-   * product image path. No individual watermark HTML is required.
-   */
+  const WATERMARK_LOGO = "/images/brand/jss-brothers-logo.jpg";
 
-  const CONFIG = {
-    enabled: true,
-    sourcePrefix: "/images/products/",
-    brandedPrefix: "/images/products-branded/"
-  };
+  function productImage(img) {
 
-  window.JSS_PRODUCT_BRANDING = CONFIG;
+    if (!img) return false;
 
-  if (!CONFIG.enabled) return;
+    const src =
+      (img.getAttribute("src") || "")
+      .toLowerCase();
 
-
-  function normalise(url) {
-    try {
-      return new URL(url, window.location.href);
-    } catch {
-      return null;
-    }
+    return (
+      src.includes("/images/products/") ||
+      src.includes("images/products/")
+    );
   }
 
 
-  function brandImage(img) {
+  function crystalImage(img) {
 
-    if (!img || img.dataset.jssBrandChecked === "1") {
-      return;
-    }
+    const src =
+      (img.getAttribute("src") || "")
+      .toLowerCase();
 
-    const url = normalise(
-      img.getAttribute("src") || ""
+    return src.includes(
+      "images/products/metallic-yarn/crystal/"
     );
+  }
 
-    if (!url) return;
 
-    const path = url.pathname;
+  function addWatermark(img) {
+
+    if (!productImage(img)) return;
+
+    /*
+     * Crystal pictures already have the approved
+     * watermark baked into the photograph.
+     */
+    if (crystalImage(img)) return;
 
     if (
-      !path.startsWith(CONFIG.sourcePrefix) ||
-      path.startsWith(CONFIG.brandedPrefix)
+      img.dataset.jssWatermarkApplied === "1"
     ) {
       return;
     }
 
-    const original =
-      path + url.search;
+    const parent = img.parentElement;
 
-    const branded =
-      CONFIG.brandedPrefix +
-      path.slice(CONFIG.sourcePrefix.length) +
-      url.search;
+    if (!parent) return;
 
-    img.dataset.jssBrandChecked = "1";
-    img.dataset.jssOriginalSrc = original;
+    img.dataset.jssWatermarkApplied = "1";
 
-    img.addEventListener(
-      "error",
-      function fallback() {
-
-        if (
-          this.dataset.jssFallbackUsed === "1"
-        ) return;
-
-        this.dataset.jssFallbackUsed = "1";
-        this.src =
-          this.dataset.jssOriginalSrc;
-
-      },
-      { once:true }
-    );
-
-    img.src = branded;
-  }
-
-
-  function scan(root=document) {
-
-    root
-      .querySelectorAll?.('img[src]')
-      .forEach(brandImage);
-
-  }
-
-
-  scan();
-
-
-  new MutationObserver(mutations => {
-
-    for (const mutation of mutations) {
-
-      for (const node of mutation.addedNodes) {
-
-        if (!(node instanceof Element)) {
-          continue;
-        }
-
-        if (node.matches?.("img[src]")) {
-          brandImage(node);
-        }
-
-        scan(node);
-      }
+    if (
+      window.getComputedStyle(parent).position
+      === "static"
+    ) {
+      parent.style.position = "relative";
     }
 
-  }).observe(
+    const mark =
+      document.createElement("img");
+
+    mark.src = WATERMARK_LOGO;
+    mark.alt = "";
+    mark.className =
+      "jss-approved-watermark";
+
+    mark.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+    mark.style.position = "absolute";
+    mark.style.right = "12px";
+    mark.style.bottom = "12px";
+
+    mark.style.width = "72px";
+    mark.style.height = "auto";
+    mark.style.maxWidth = "24%";
+
+    mark.style.opacity = "0.42";
+
+    mark.style.filter = "none";
+    mark.style.pointerEvents = "none";
+
+    mark.style.zIndex = "20";
+
+    mark.style.borderRadius = "7px";
+
+    mark.style.objectFit = "contain";
+
+    mark.style.padding = "0";
+
+    parent.appendChild(mark);
+  }
+
+
+  function scan(root = document) {
+
+    if (
+      root instanceof HTMLImageElement
+    ) {
+      addWatermark(root);
+    }
+
+    root
+      .querySelectorAll?.("img")
+      .forEach(addWatermark);
+  }
+
+
+  if (
+    document.readyState === "loading"
+  ) {
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      () => scan(document),
+      { once: true }
+    );
+
+  } else {
+
+    scan(document);
+
+  }
+
+
+  new MutationObserver(
+    mutations => {
+
+      mutations.forEach(
+        mutation => {
+
+          mutation.addedNodes.forEach(
+            node => {
+
+              if (
+                !(node instanceof Element)
+              ) {
+                return;
+              }
+
+              scan(node);
+
+            }
+          );
+
+        }
+      );
+
+    }
+  ).observe(
     document.documentElement,
     {
-      childList:true,
-      subtree:true
+      childList: true,
+      subtree: true
     }
   );
 

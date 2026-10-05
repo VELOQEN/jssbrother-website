@@ -208,7 +208,7 @@ img{display:block;max-width:100%}
 
 .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#031027}
 .marquee-track{width:max-content;display:flex;animation:marquee 29s linear infinite}
-.marquee-entry{padding:18px 35px;color:rgba(255,255,255,.53);font-size:10px;letter-spacing:.13em;white-space:nowrap}
+.marquee-entry{padding:18px 35px;color:rgba(255,255,255,.53);font-size:10px;letter-spacing:.13em;white-space:nowrap;text-decoration:none;cursor:pointer;display:block}.marquee-entry:hover{color:#fff}.marquee-entry:hover b{color:var(--blue2)}
 .marquee-entry b{margin-right:22px;color:var(--blue2)}
 @keyframes marquee{to{transform:translateX(-50%)}}
 
@@ -1346,30 +1346,30 @@ html[dir="rtl"] .contact-section .display span{
 
 <div class="marquee">
   <div class="marquee-track">
-    <div class="marquee-entry"><b>01</b> METALLIC YARN / TILLA</div>
-    <div class="marquee-entry"><b>02</b> BOBIN</div>
-    <div class="marquee-entry"><b>03</b> SOLVING</div>
-    <div class="marquee-entry"><b>04</b> DISSOLVING</div>
-    <div class="marquee-entry"><b>05</b> SEQUENCE / CD</div>
-    <div class="marquee-entry"><b>06</b> NEEDLES</div>
-    <div class="marquee-entry"><b>07</b> POLYESTER</div>
-    <div class="marquee-entry"><b>08</b> FUSING</div>
-    <div class="marquee-entry"><b>09</b> NYLON</div>
-    <div class="marquee-entry"><b>10</b> PANNI</div>
-    <div class="marquee-entry"><b>11</b> WHITE OIL</div>
-    <div class="marquee-entry"><b>12</b> SPARE PARTS</div>
-    <div class="marquee-entry"><b>01</b> METALLIC YARN / TILLA</div>
-    <div class="marquee-entry"><b>02</b> BOBIN</div>
-    <div class="marquee-entry"><b>03</b> SOLVING</div>
-    <div class="marquee-entry"><b>04</b> DISSOLVING</div>
-    <div class="marquee-entry"><b>05</b> SEQUENCE / CD</div>
-    <div class="marquee-entry"><b>06</b> NEEDLES</div>
-    <div class="marquee-entry"><b>07</b> POLYESTER</div>
-    <div class="marquee-entry"><b>08</b> FUSING</div>
-    <div class="marquee-entry"><b>09</b> NYLON</div>
-    <div class="marquee-entry"><b>10</b> PANNI</div>
-    <div class="marquee-entry"><b>11</b> WHITE OIL</div>
-    <div class="marquee-entry"><b>12</b> SPARE PARTS</div>
+    <a class="marquee-entry" href="#catalogue" data-category="metallic"><b>01</b> METALLIC YARN / TILLA</a>
+    <a class="marquee-entry" href="#catalogue" data-category="bobin"><b>02</b> BOBIN</a>
+    <a class="marquee-entry" href="#catalogue" data-category="solving"><b>03</b> SOLVING</a>
+    <a class="marquee-entry" href="#catalogue" data-category="dissolving"><b>04</b> DISSOLVING</a>
+    <a class="marquee-entry" href="#catalogue" data-category="sequence"><b>05</b> SEQUENCE / CD</a>
+    <a class="marquee-entry" href="#catalogue" data-category="needles"><b>06</b> NEEDLES</a>
+    <a class="marquee-entry" href="#catalogue" data-category="polyester"><b>07</b> POLYESTER</a>
+    <a class="marquee-entry" href="#catalogue" data-category="fusing"><b>08</b> FUSING</a>
+    <a class="marquee-entry" href="#catalogue" data-category="nylon"><b>09</b> NYLON</a>
+    <a class="marquee-entry" href="#catalogue" data-category="panni"><b>10</b> PANNI</a>
+    <a class="marquee-entry" href="#catalogue" data-category="whiteOil"><b>11</b> WHITE OIL</a>
+    <a class="marquee-entry" href="#catalogue" data-category="parts"><b>12</b> SPARE PARTS</a>
+    <a class="marquee-entry" href="#catalogue" data-category="metallic"><b>01</b> METALLIC YARN / TILLA</a>
+    <a class="marquee-entry" href="#catalogue" data-category="bobin"><b>02</b> BOBIN</a>
+    <a class="marquee-entry" href="#catalogue" data-category="solving"><b>03</b> SOLVING</a>
+    <a class="marquee-entry" href="#catalogue" data-category="dissolving"><b>04</b> DISSOLVING</a>
+    <a class="marquee-entry" href="#catalogue" data-category="sequence"><b>05</b> SEQUENCE / CD</a>
+    <a class="marquee-entry" href="#catalogue" data-category="needles"><b>06</b> NEEDLES</a>
+    <a class="marquee-entry" href="#catalogue" data-category="polyester"><b>07</b> POLYESTER</a>
+    <a class="marquee-entry" href="#catalogue" data-category="fusing"><b>08</b> FUSING</a>
+    <a class="marquee-entry" href="#catalogue" data-category="nylon"><b>09</b> NYLON</a>
+    <a class="marquee-entry" href="#catalogue" data-category="panni"><b>10</b> PANNI</a>
+    <a class="marquee-entry" href="#catalogue" data-category="whiteOil"><b>11</b> WHITE OIL</a>
+    <a class="marquee-entry" href="#catalogue" data-category="parts"><b>12</b> SPARE PARTS</a>
   </div>
 </div>
 
@@ -2198,8 +2198,14 @@ const catalogueData = {
       {title:"Matt",items:["Golden Panni","357 Panni","Silver Panni"]}
     ]
   },
-  parts:{
+  whiteOil:{
     number:"11",
+    title:"White Oil",
+    description:"White Oil supplied for textile machinery use.",
+    special:"whiteOil"
+  },
+  parts:{
+    number:"12",
     title:"Spare Parts",
     description:"Machinery-use products and supporting workshop supplies.",
     items:["Sprays","White Oil"]
@@ -2314,7 +2320,7 @@ const METALLIC_FAMILY_ROUTES = {
   Markfil: "/products/markfil/"
 };
 
-const categoryOrder = ["metallic","bobin","solving","dissolving","sequence","needles","polyester","fusing","nylon","panni","parts"];
+const categoryOrder = ["metallic","bobin","solving","dissolving","sequence","needles","polyester","fusing","nylon","panni","whiteOil","parts"];
 const navigation = document.getElementById("categoryNavigation");
 
 categoryOrder.forEach((key,index)=>{
@@ -2346,6 +2352,13 @@ function selectCatalogueCategory(key,{scroll=true}={}){
     });
   }
 }
+
+document.querySelectorAll(".marquee-entry[data-category]").forEach(entry=>{
+  entry.addEventListener("click",event=>{
+    event.preventDefault();
+    selectCatalogueCategory(entry.dataset.category);
+  });
+});
 
 
 function openMetallicFamily(brand){
@@ -2599,6 +2612,11 @@ function renderProduct(key){
     return;
   }
 
+  if(key==="whiteOil"){
+    renderImageCatalogue(grid,catalogueImageSets.whiteOil);
+    return;
+  }
+
   if(key==="parts"){
     grid.innerHTML="";
 
@@ -2645,7 +2663,7 @@ function renderProduct(key){
           </div>
 
           <div style="min-width:0">
-            <small>11.${index+1}</small>
+            <small>12.${index+1}</small>
             <strong style="display:block;margin-top:6px">${translateCatalogueTerm(choice.name)}</strong>
             <p style="margin-top:10px;color:var(--muted);font-size:11px;line-height:1.6">
               ${choice.description}

@@ -7,6 +7,8 @@
 <meta name="description" content="JSS Brothers supplies embroidery materials and textile accessories in Lahore, including metallic yarn (Tilla), bobbin, sequins, polyester, fusing, needles, dissolving and more.">
 
 <link rel="canonical" href="https://jssbrother.com/">
+<link rel="icon" type="image/jpeg" href="/images/brand/favicon.jpg">
+<link rel="apple-touch-icon" href="/images/brand/favicon.jpg">
 
 <meta name="robots" content="index, follow, max-image-preview:large">
 <meta name="googlebot" content="index, follow, max-image-preview:large">
@@ -1221,6 +1223,31 @@ html[dir="rtl"] .contact-section .display span{
 
 </style>
 
+<style id="solving-dissolving-logo-adjustment">
+/* Solving/Dissolving: keep the existing logo/watermark asset, but make the logo smaller and move it to the top-left. */
+.material-photo .pic-watermark{
+  display:block !important;
+  left:9px !important;
+  top:9px !important;
+  right:auto !important;
+  bottom:auto !important;
+  width:48px !important;
+  max-width:18% !important;
+  max-height:30px !important;
+  opacity:.42 !important;
+  border-radius:0 !important;
+  padding:0 !important;
+  background:transparent !important;
+  box-shadow:none !important;
+  transform:none !important;
+  mix-blend-mode:multiply !important;
+  z-index:6 !important;
+}
+@media(max-width:700px){
+  .material-photo .pic-watermark{width:40px !important;left:7px !important;top:7px !important}
+}
+</style>
+
 <style id="jss-branding-cleanup">
 .pic-watermark,
 .final-jss-watermark,
@@ -1386,14 +1413,14 @@ html[dir="rtl"] .contact-section .display span{
 
       <article class="story-item" data-catalogue-key="solving" role="link" tabindex="0">
         <div class="story-card">
-          <div class="story-image watermark-target"><img src="/images/products-branded/solving/solvi.webp" alt="Solving embroidery material"></div>
+          <div class="story-image"><img src="/images/products-branded/solving/solvi.webp" alt="Solving embroidery material"></div>
           <div class="story-content"><small>03 • SOLVING</small><h3>Solving</h3><p>100yrds water-soluble embroidery material.</p></div>
         </div>
       </article>
 
       <article class="story-item" data-catalogue-key="dissolving" role="link" tabindex="0">
         <div class="story-card">
-          <div class="story-image watermark-target"><img src="/images/products-branded/dissolving/dissolving.webp" alt="Dissolving material"></div>
+          <div class="story-image"><img src="/images/products-branded/dissolving/dissolving.webp" alt="Dissolving material"></div>
           <div class="story-content"><small>04 • DISSOLVING</small><h3>Dissolving</h3><p>200meter dissolving material for embroidery applications.</p></div>
         </div>
       </article>
@@ -2529,7 +2556,7 @@ function renderProduct(key){
     card.className="crystal-card";
     card.href="/products/"+key+"/";
     const image=document.createElement("div");
-    image.className="crystal-image watermark-target";
+    image.className="crystal-image watermark-target material-photo";
     const img=document.createElement("img");
     img.src="/"+product.image;
     img.alt=product.title+" roll - JSS Brothers";

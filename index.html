@@ -3130,5 +3130,60 @@ window.addEventListener("scroll",()=>{
 <script src="/branding-loader.js?v=1"></script>
 
 
+
+<script>
+/* Fast preview image pipeline: show a tiny preview first, then fetch the full image only when needed. */
+(function(){
+  const rootMargin = '600px 0px';
+  const loadFull = (img) => {
+    if (!img || img.dataset.fullLoaded || !img.dataset.fullSrc) return;
+    const full = img.dataset.fullSrc;
+    img.dataset.fullLoaded = '1';
+    img.src = full;
+  };
+  const prepare = (img) => {
+    if (!img || img.dataset.fastPreviewReady || !img.getAttribute('src')) return;
+    const src = img.getAttribute('src');
+    if (!src.startsWith('images/') || src.startsWith('images/data:')) return;
+    const clean = src.split('#')[0].split('?')[0];
+    const dot = clean.lastIndexOf('.');
+    if (dot < 0) return;
+    const preview = clean.slice(0, dot) + '.preview.jpg';
+    img.dataset.fastPreviewReady = '1';
+    img.dataset.fullSrc = src;
+    img.src = preview;
+    img.decoding = 'async';
+  };
+  const imgs = Array.from(document.images);
+  imgs.forEach(prepare);
+  const io = 'IntersectionObserver' in window ? new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        loadFull(entry.target);
+        io.unobserve(entry.target);
+      }
+    });
+  }, {rootMargin}) : null;
+  imgs.forEach(img => {
+    if (!img.dataset.fullSrc) return;
+    if (io) io.observe(img);
+    else loadFull(img);
+  });
+
+  /* Make every rotating Metallic Yarn brand chip explicitly navigable. */
+  document.querySelectorAll('.metallic-brand-chip').forEach(chip => {
+    chip.style.pointerEvents = 'auto';
+    chip.style.cursor = 'pointer';
+    chip.addEventListener('click', function(event){
+      const href = this.getAttribute('href');
+      if (href) {
+        event.stopPropagation();
+        window.location.assign(href);
+      }
+    });
+  });
+})();
+</script>
+
 </body>
 </html>
